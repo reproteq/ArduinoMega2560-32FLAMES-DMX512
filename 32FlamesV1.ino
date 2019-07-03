@@ -1,5 +1,7 @@
 /*
 FLAME CONTROLLER FOR FIREONE 32CUE + ARDUINO MEGA 2560 + DMX SHIELD CTC-DRA-10-R2 
+Author:TT 2019
+Version:1.0
 -------------------------------------------------------------
 Flame machine DMX512 COMMANDS
 1 CH  FLAME 1         0-255 : 0-199 OFF   200-255 ON 
@@ -107,7 +109,7 @@ int buttonState32 = 0;
 void setup() 
 {   
  
-int buttonState1  = 0; 
+  int buttonState1  = 0; 
   int buttonState2  = 0; 
   int buttonState3  = 0;
   int buttonState4  = 0; 
@@ -218,400 +220,418 @@ void loop()
   
   
 
-
   
     if (buttonState1 == LOW)  // Button 1 
       { 
-      //secuencia  1,2,3,4,5 cada una 200ms
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto  
-         
-      DmxSimple.write(1, 255 );
-      delay (200 );
-      DmxSimple.write(1, 0 );     
-
-      DmxSimple.write(2, 255 );
-      delay (200 );
-      DmxSimple.write(2, 0 ); 
-      
-      DmxSimple.write(3, 255 );
-      delay (200 );
-      DmxSimple.write(3, 0 );       
-      
-      DmxSimple.write(4, 255 );
-      delay (200 );
-      DmxSimple.write(4, 0 );    
-
-      DmxSimple.write(5, 255 );
-      delay (200 );
-      DmxSimple.write(5, 0 );  
-
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto             
+       //secuencia  1 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(1, 255 );
+       delay (200 );
+       DmxSimple.write(1, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off        
       }
 
   
     if (buttonState2 == LOW)  // Button 2
       {
-      //secuencia  1,2,3,4,5 cada una 600ms
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto  
-         
-      DmxSimple.write(1, 255 );
-      delay (600 );
-      DmxSimple.write(1, 0 );     
-
-      DmxSimple.write(2, 255 );
-      delay (600 );
-      DmxSimple.write(2, 0 ); 
-      
-      DmxSimple.write(3, 255 );
-      delay (600 );
-      DmxSimple.write(3, 0 );       
-      
-      DmxSimple.write(4, 255 );
-      delay (600 );
-      DmxSimple.write(4, 0 );    
-
-      DmxSimple.write(5, 255 );
-      delay (600 );
-      DmxSimple.write(5, 0 );  
-
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto        
+       //secuencia  2 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(2, 255 );
+       delay (200 );
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off   
       } 
-
-       
-
+     
  
     if (buttonState3 == LOW)  // Button 3  
       {
-      // simultanea  2,4  600ms
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto  
-         
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (600 );  
-      DmxSimple.write(2, 0 );   
-      DmxSimple.write(4, 0 );
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto      
+       //secuencia  3 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(3, 255 );
+       delay (200 );
+       DmxSimple.write(3, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off     
       }   
-
 
  
     if (buttonState4 == LOW)  // Button 4 
       { 
-      // simultanea  1,3,5  600ms       
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto  
-         
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(3, 255 );
-      DmxSimple.write(5, 255 );
-      delay (600 );  
-      DmxSimple.write(1, 0 );   
-      DmxSimple.write(3, 0 );
-      DmxSimple.write(5, 0 );
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto           
+       //secuencia  4 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(4, 255 );
+       delay (200 );
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
 
  
     if (buttonState5 == LOW)  // Button 5 
       { 
-      // simultanea 1,2,3,4,5 600ms  
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir todos los inyectores 
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(2, 255 );  
-      DmxSimple.write(3, 255 );  
-      DmxSimple.write(4, 255 );  
-      DmxSimple.write(5, 255 );
-      delay (600 );    
-      // cerrar todos los inyectores
-      DmxSimple.write(1, 0 );  
-      DmxSimple.write(2, 0 );  
-      DmxSimple.write(3, 0 );  
-      DmxSimple.write(4, 0 );  
-      DmxSimple.write(5, 0 );   
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto
+       //secuencia  5 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(5, 255 );
+       delay (200 );
+       DmxSimple.write(5, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off 
       }
 
 
  
     if (buttonState6 == LOW)  // Button 6 
       { 
-      //consecutivas 1,2,3,4,5 200ms
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(1, 255 );
-      delay (200 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(2, 255 );
-      delay (200 );        
-      DmxSimple.write(2, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(4, 255 );  
-      delay (200 );  
-      DmxSimple.write(4, 0 );          
-      DmxSimple.write(5, 255 );
-      delay (200 );    
-      DmxSimple.write(5, 0 );   
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto      
+       //secuencia  1 600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(1, 255 );
+       delay (600 );
+       DmxSimple.write(1, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off 
       }
 
 
  
     if (buttonState7 == LOW)  // Button 7 
       { 
-      //consecutivas 5,4,3,2,1 200ms
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(5, 255 );
-      delay (200 ); 
-      DmxSimple.write(5, 0 ); 
-      DmxSimple.write(4, 255 );
-      delay (200 );        
-      DmxSimple.write(4, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(2, 255 );  
-      delay (200 );  
-      DmxSimple.write(2, 0 );          
-      DmxSimple.write(1, 255 );
-      delay (200 );    
-      DmxSimple.write(1, 0 );   
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
+       //secuencia  2 600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(2, 255 );
+       delay (600 );
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
  
     if (buttonState8 == LOW)  // Button 8 
       { 
-      //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(1, 255 );
-      delay (200 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(2, 255 );
-      delay (200 );        
-      DmxSimple.write(2, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(4, 255 );  
-      delay (200 );  
-      DmxSimple.write(4, 0 );          
-      DmxSimple.write(5, 255 );
-      delay (200 );    
-      DmxSimple.write(5, 0 );   
-      DmxSimple.write(4, 255 );
-      delay (200 );        
-      DmxSimple.write(4, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(2, 255 );  
-      delay (200 );  
-      DmxSimple.write(2, 0 );          
-      DmxSimple.write(1, 255 );
-      delay (200 );    
-      DmxSimple.write(1, 0 );   
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto       
+       //secuencia  3 600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(3, 255 );
+       delay (600 );
+       DmxSimple.write(3, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
   
     if (buttonState9 == LOW)  // Button 9
       { 
-      //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(5, 255 );
-      delay (200 ); 
-      DmxSimple.write(5, 0 ); 
-      DmxSimple.write(4, 255 );
-      delay (200 );        
-      DmxSimple.write(4, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(2, 255 );  
-      delay (200 );  
-      DmxSimple.write(2, 0 );          
-      DmxSimple.write(1, 255 );
-      delay (200 );    
-      DmxSimple.write(1, 0 );   
-      DmxSimple.write(2, 255 );
-      delay (200 );        
-      DmxSimple.write(2, 0 );  
-      DmxSimple.write(3, 255 );  
-      delay (200 ); 
-      DmxSimple.write(3, 0 );      
-      DmxSimple.write(4, 255 );  
-      delay (200 );  
-      DmxSimple.write(4, 0 );          
-      DmxSimple.write(5, 255 );
-      delay (200 );    
-      DmxSimple.write(5, 0 );   
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
+       //secuencia  4 600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(4, 255 );
+       delay (600 );
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
 
     if (buttonState10 == LOW)  // Button 10 
       { 
-      //consecutivas 3,2-4, 1-5, 2-4, 3  200ms  
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(3, 255 );
-      delay (200 ); 
-      DmxSimple.write(3, 0 ); 
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (200 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(5, 255 );
-      delay (200 ); 
-      DmxSimple.write(1, 0 );
-      DmxSimple.write(5, 0 );
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (200 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );                       
-      DmxSimple.write(3, 255 );
-      delay (200 );  
-      DmxSimple.write(3, 0 );
-      
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto       
+       //secuencia  5 600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto         
+       DmxSimple.write(5, 255 );
+       delay (600 );
+       DmxSimple.write(5, 0 );  
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off 
       }
 
 
     if (buttonState11 == LOW)  // Button 11  
       { 
-      //consecutivas 1-5, 2-4, 3, 2-4, 1-5  200ms  
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(5, 255 );
-      delay (200 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(5, 0 );
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (200 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );
-      DmxSimple.write(3, 255 );
-      delay (200 ); 
-      DmxSimple.write(3, 0 );
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (200 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );                        
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(5, 255 );
-      delay (200 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(5, 0 );
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto         
+       // simultanea  2,4  600ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (600 );  
+       DmxSimple.write(2, 0 );   
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off 
       }
 
  
     if (buttonState12 == LOW)  // Button 12 
       { 
-      //consecutivas 1-5, 2-4, 3, 2-4, 1-5  200ms  
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir cerrar uno a uno 
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(5, 255 );
-      delay (100 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(5, 0 );
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (100 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );
-      DmxSimple.write(3, 255 );
-      delay (100 ); 
-      DmxSimple.write(3, 0 );
-      DmxSimple.write(2, 255 );
-      DmxSimple.write(4, 255 );
-      delay (100 );  
-      DmxSimple.write(2, 0 );
-      DmxSimple.write(4, 0 );                        
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(5, 255 );
-      delay (100 ); 
-      DmxSimple.write(1, 0 ); 
-      DmxSimple.write(5, 0 );
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto                 
+       // simultanea  1,3,5  600ms 
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto          
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(3, 255 );
+       DmxSimple.write(5, 255 );
+       delay (600 );  
+       DmxSimple.write(1, 0 );   
+       DmxSimple.write(3, 0 );
+       DmxSimple.write(5, 0 );      
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
 
  
     if (buttonState13 == LOW)  // Button 13 
       { 
-  
+       // simultanea 1,2,3,4,5 600ms 
+       digitalWrite(ledPin, HIGH); // led pin A15 on    
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+         // abrir todos los inyectores 
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );  
+       DmxSimple.write(3, 255 );  
+       DmxSimple.write(4, 255 );  
+       DmxSimple.write(5, 255 );
+       delay (600 );    
+        // cerrar todos los inyectores
+       DmxSimple.write(1, 0 );  
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(3, 0 );  
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(5, 0 );   
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off   
       }
 
 
 
     if (buttonState14 == LOW)  // Button 14  
-      {      
-      DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-      // abrir todos los inyectores 
-      DmxSimple.write(1, 255 );
-      DmxSimple.write(2, 255 );  
-      DmxSimple.write(3, 255 );  
-      DmxSimple.write(4, 255 );  
-      DmxSimple.write(5, 255 );       
+      {  
+       //consecutivas 1,2,3,4,5 200ms    
+       digitalWrite(ledPin, HIGH); // led pin A15 on  
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(1, 255 );
+       delay (200 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(2, 255 );
+       delay (200 );        
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(4, 255 );  
+       delay (200 );  
+       DmxSimple.write(4, 0 );          
+       DmxSimple.write(5, 255 );
+       delay (200 );    
+       DmxSimple.write(5, 0 );   
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto     
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
 
 
     if (buttonState15 == LOW)  // Button 15  
       { 
-      // cerrar todos los inyectores
-      DmxSimple.write(1, 0 );  
-      DmxSimple.write(2, 0 );  
-      DmxSimple.write(3, 0 );  
-      DmxSimple.write(4, 0 );  
-      DmxSimple.write(5, 0 );   
-      DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto
+      //consecutivas 5,4,3,2,1 200ms
+       digitalWrite(ledPin, HIGH); // led pin A15 on
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(5, 255 );
+       delay (200 ); 
+       DmxSimple.write(5, 0 ); 
+       DmxSimple.write(4, 255 );
+       delay (200 );        
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(2, 255 );  
+       delay (200 );  
+       DmxSimple.write(2, 0 );          
+       DmxSimple.write(1, 255 );
+       delay (200 );    
+       DmxSimple.write(1, 0 );         
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off  
       }
     
  
     if (buttonState16 == LOW)  // Button 16 
       { 
-  
+       //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
+       digitalWrite(ledPin, HIGH); // led pin A15 on
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(1, 255 );
+       delay (200 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(2, 255 );
+       delay (200 );        
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(4, 255 );  
+       delay (200 );  
+       DmxSimple.write(4, 0 );          
+       DmxSimple.write(5, 255 );
+       delay (200 );    
+       DmxSimple.write(5, 0 );   
+       DmxSimple.write(4, 255 );
+       delay (200 );        
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(2, 255 );  
+       delay (200 );  
+       DmxSimple.write(2, 0 );          
+       DmxSimple.write(1, 255 );
+       delay (200 );    
+       DmxSimple.write(1, 0 );      
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off    
       }
     
     
     if (buttonState17 == LOW)  // Button 17 
       { 
-  
+       //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
+       digitalWrite(ledPin, HIGH); // led pin A15 on      
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(5, 255 );
+       delay (200 ); 
+       DmxSimple.write(5, 0 ); 
+       DmxSimple.write(4, 255 );
+       delay (200 );        
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(2, 255 );  
+       delay (200 );  
+       DmxSimple.write(2, 0 );          
+       DmxSimple.write(1, 255 );
+       delay (200 );    
+       DmxSimple.write(1, 0 );   
+       DmxSimple.write(2, 255 );
+       delay (200 );        
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(3, 255 );  
+       delay (200 ); 
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(4, 255 );  
+       delay (200 );  
+       DmxSimple.write(4, 0 );          
+       DmxSimple.write(5, 255 );
+       delay (200 );    
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto   
+       digitalWrite(ledPin, LOW);  // led pin A15 off         
       }
 
     if (buttonState18 == LOW)  // Button 18 
       { 
-  
+       //consecutivas 3,2-4, 1-5, 2-4, 3  200ms  
+       digitalWrite(ledPin, HIGH); // led pin A15 on
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(3, 255 );
+       delay (200 ); 
+       DmxSimple.write(3, 0 ); 
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (200 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(5, 255 );
+       delay (200 ); 
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (200 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );                       
+       DmxSimple.write(3, 255 );
+       delay (200 );  
+       DmxSimple.write(3, 0 );      
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off             
       }   
 
     if (buttonState19 == LOW)  // Button 19 
       { 
-  
+       //consecutivas 1-5, 2-4, 3, 2-4, 1-5  200ms 
+       digitalWrite(ledPin, HIGH); // led pin A15 on       
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(5, 255 );
+       delay (200 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (200 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(3, 255 );
+       delay (200 ); 
+       DmxSimple.write(3, 0 );
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (200 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );                        
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(5, 255 );
+       delay (200 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto 
+       digitalWrite(ledPin, LOW);  // led pin A15 off                  
       }   
     
     if (buttonState20 == LOW)  // Button 20 
       { 
-  
+       //consecutivas 1-5, 2-4, 3, 2-4, 1-5  200ms  
+       digitalWrite(ledPin, HIGH); // led pin A15 on      
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       // abrir cerrar uno a uno 
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(5, 255 );
+       delay (100 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (100 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(3, 255 );
+       delay (100 ); 
+       DmxSimple.write(3, 0 );
+       DmxSimple.write(2, 255 );
+       DmxSimple.write(4, 255 );
+       delay (100 );  
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(4, 0 );                        
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(5, 255 );
+       delay (100 ); 
+       DmxSimple.write(1, 0 ); 
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
+       digitalWrite(ledPin, LOW);  // led pin A15 off                   
       }   
 
     if (buttonState21 == LOW)  // Button 21 
@@ -666,12 +686,28 @@ void loop()
 
     if (buttonState31 == LOW)  // Button 31
       { 
-  
+       // abrir todos los inyectores
+       digitalWrite(ledPin, HIGH); // led pin A15 on        
+       DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );  
+       DmxSimple.write(3, 255 );  
+       DmxSimple.write(4, 255 );  
+       DmxSimple.write(5, 255 );  
+       digitalWrite(ledPin, LOW);  // led pin A15 off         
       } 
 
     if (buttonState32 == LOW)  // Button 32
       { 
-  
+       // cerrar todos los inyectores
+       digitalWrite(ledPin, HIGH); // led pin A15 on
+       DmxSimple.write(1, 0 );  
+       DmxSimple.write(2, 0 );  
+       DmxSimple.write(3, 0 );  
+       DmxSimple.write(4, 0 );  
+       DmxSimple.write(5, 0 );   
+       DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
+       digitalWrite(ledPin, LOW);  // led pin A15 off        
       } 
   
       
