@@ -85,6 +85,7 @@ int buttonState11 = 0;
 int buttonState12 = 0;
 int buttonState13 = 0; 
 int buttonState14 = 0; 
+int buttonState15 = 0; 
 int buttonState16 = 0;  
 int buttonState17 = 0; 
 int buttonState18 = 0; 
@@ -107,115 +108,115 @@ void setup()
 {   
  
 int buttonState1  = 0; 
-	int buttonState2  = 0; 
-	int buttonState3  = 0;
-	int buttonState4  = 0; 
-	int buttonState5  = 0; 
-	int buttonState6  = 0; 
-	int buttonState7  = 0; 
-	int buttonState8  = 0; 
-	int buttonState9  = 0; 
-	int buttonState10 = 0; 
-	int buttonState11 = 0; 
-	int buttonState12 = 0;
-	int buttonState13 = 0; 
-	int buttonState14 = 0; 
-	int buttonState16 = 0;  
-	int buttonState17 = 0; 
-	int buttonState18 = 0; 
-	int buttonState19 = 0;
-	int buttonState20 = 0; 
-	int buttonState21 = 0; 
-	int buttonState22 = 0; 
-	int buttonState23 = 0; 
-	int buttonState24 = 0; 
-	int buttonState25 = 0; 
-	int buttonState26 = 0; 
-	int buttonState27 = 0; 
-	int buttonState28 = 0;
-	int buttonState29 = 0; 
-	int buttonState30 = 0; 
-	int buttonState31 = 0;
-	int buttonState32 = 0;  
-	 
-	pinMode(2, OUTPUT);
-	digitalWrite(2, HIGH);
-	DmxSimple.usePin(4);
+  int buttonState2  = 0; 
+  int buttonState3  = 0;
+  int buttonState4  = 0; 
+  int buttonState5  = 0; 
+  int buttonState6  = 0; 
+  int buttonState7  = 0; 
+  int buttonState8  = 0; 
+  int buttonState9  = 0; 
+  int buttonState10 = 0; 
+  int buttonState11 = 0; 
+  int buttonState12 = 0;
+  int buttonState13 = 0; 
+  int buttonState14 = 0; 
+  int buttonState15 = 0;
+  int buttonState16 = 0;  
+  int buttonState17 = 0; 
+  int buttonState18 = 0; 
+  int buttonState19 = 0;
+  int buttonState20 = 0; 
+  int buttonState21 = 0; 
+  int buttonState22 = 0; 
+  int buttonState23 = 0; 
+  int buttonState24 = 0; 
+  int buttonState25 = 0; 
+  int buttonState26 = 0; 
+  int buttonState27 = 0; 
+  int buttonState28 = 0;
+  int buttonState29 = 0; 
+  int buttonState30 = 0; 
+  int buttonState31 = 0;
+  int buttonState32 = 0;  
+   
+  pinMode(2, OUTPUT);
+  digitalWrite(2, HIGH);
+  DmxSimple.usePin(4);
     DmxSimple.maxChannel(6); //number of channels
-	
-	pinMode(buttonPin1, INPUT);
-	pinMode(buttonPin2, INPUT);
-	pinMode(buttonPin3, INPUT);
-	pinMode(buttonPin4, INPUT);
-	pinMode(buttonPin5, INPUT);
-	pinMode(buttonPin6, INPUT);
-	pinMode(buttonPin7, INPUT);
-	pinMode(buttonPin8, INPUT);
-	pinMode(buttonPin9, INPUT);
-	pinMode(buttonPin10, INPUT);
-	pinMode(buttonPin11, INPUT);
-	pinMode(buttonPin12, INPUT);
-	pinMode(buttonPin13, INPUT);
-	pinMode(buttonPin14, INPUT);
-	pinMode(buttonPin15, INPUT);
-	pinMode(buttonPin16, INPUT);
-	pinMode(buttonPin17, INPUT);
-	pinMode(buttonPin18, INPUT);
-	pinMode(buttonPin19, INPUT);
-	pinMode(buttonPin20, INPUT);
-	pinMode(buttonPin21, INPUT);
-	pinMode(buttonPin22, INPUT);
-	pinMode(buttonPin23, INPUT);
-	pinMode(buttonPin24, INPUT);
-	pinMode(buttonPin25, INPUT);
-	pinMode(buttonPin26, INPUT);
-	pinMode(buttonPin27, INPUT);
-	pinMode(buttonPin28, INPUT);
-	pinMode(buttonPin29, INPUT);
-	pinMode(buttonPin30, INPUT);	
-	pinMode(buttonPin31, INPUT);
-	pinMode(buttonPin32, INPUT);	
-	
+  
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
+  pinMode(buttonPin3, INPUT);
+  pinMode(buttonPin4, INPUT);
+  pinMode(buttonPin5, INPUT);
+  pinMode(buttonPin6, INPUT);
+  pinMode(buttonPin7, INPUT);
+  pinMode(buttonPin8, INPUT);
+  pinMode(buttonPin9, INPUT);
+  pinMode(buttonPin10, INPUT);
+  pinMode(buttonPin11, INPUT);
+  pinMode(buttonPin12, INPUT);
+  pinMode(buttonPin13, INPUT);
+  pinMode(buttonPin14, INPUT);
+  pinMode(buttonPin15, INPUT);
+  pinMode(buttonPin16, INPUT);
+  pinMode(buttonPin17, INPUT);
+  pinMode(buttonPin18, INPUT);
+  pinMode(buttonPin19, INPUT);
+  pinMode(buttonPin20, INPUT);
+  pinMode(buttonPin21, INPUT);
+  pinMode(buttonPin22, INPUT);
+  pinMode(buttonPin23, INPUT);
+  pinMode(buttonPin24, INPUT);
+  pinMode(buttonPin25, INPUT);
+  pinMode(buttonPin26, INPUT);
+  pinMode(buttonPin27, INPUT);
+  pinMode(buttonPin28, INPUT);
+  pinMode(buttonPin29, INPUT);
+  pinMode(buttonPin30, INPUT);  
+  pinMode(buttonPin31, INPUT);
+  pinMode(buttonPin32, INPUT);  
+  
 }
 
 void loop() 
 
 {
-	 buttonState1  = digitalRead(buttonPin1);
-	 buttonState2  = digitalRead(buttonPin2);
-	 buttonState3  = digitalRead(buttonPin3);
-	 buttonState4  = digitalRead(buttonPin4);
-	 buttonState5  = digitalRead(buttonPin5);
-	 buttonState6  = digitalRead(buttonPin6);
-	 buttonState7  = digitalRead(buttonPin7);
-	 buttonState8  = digitalRead(buttonPin8);
-	 buttonState9  = digitalRead(buttonPin9);
-	 buttonState10 = digitalRead(buttonPin10);
-	 buttonState11 = digitalRead(buttonPin11);
-	 buttonState12 = digitalRead(buttonPin12);
-	 buttonState13 = digitalRead(buttonPin13);
-	 buttonState14 = digitalRead(buttonPin14);
-	 buttonState15 = digitalRead(buttonPin15);
-	 buttonState16 = digitalRead(buttonPin16);
-	 buttonState17 = digitalRead(buttonPin17);
-	 buttonState18 = digitalRead(buttonPin18);
-	 buttonState19 = digitalRead(buttonPin19);
-	 buttonState20 = digitalRead(buttonPin20);
-	 buttonState21 = digitalRead(buttonPin21);
-	 buttonState22 = digitalRead(buttonPin22);
-	 buttonState23 = digitalRead(buttonPin23);
-	 buttonState24 = digitalRead(buttonPin24);
-	 buttonState25 = digitalRead(buttonPin25);
-	 buttonState26 = digitalRead(buttonPin26);
-	 buttonState27 = digitalRead(buttonPin27);
-	 buttonState28 = digitalRead(buttonPin28);
-	 buttonState29 = digitalRead(buttonPin29);
-	 buttonState30 = digitalRead(buttonPin30);
-	 buttonState31 = digitalRead(buttonPin31);
-	 buttonState32 = digitalRead(buttonPin32);
+   buttonState1  = digitalRead(buttonPin1);
+   buttonState2  = digitalRead(buttonPin2);
+   buttonState3  = digitalRead(buttonPin3);
+   buttonState4  = digitalRead(buttonPin4);
+   buttonState5  = digitalRead(buttonPin5);
+   buttonState6  = digitalRead(buttonPin6);
+   buttonState7  = digitalRead(buttonPin7);
+   buttonState8  = digitalRead(buttonPin8);
+   buttonState9  = digitalRead(buttonPin9);
+   buttonState10 = digitalRead(buttonPin10);
+   buttonState11 = digitalRead(buttonPin11);
+   buttonState12 = digitalRead(buttonPin12);
+   buttonState13 = digitalRead(buttonPin13);
+   buttonState14 = digitalRead(buttonPin14);
+   buttonState15 = digitalRead(buttonPin15);
+   buttonState16 = digitalRead(buttonPin16);
+   buttonState17 = digitalRead(buttonPin17);
+   buttonState18 = digitalRead(buttonPin18);
+   buttonState19 = digitalRead(buttonPin19);
+   buttonState20 = digitalRead(buttonPin20);
+   buttonState21 = digitalRead(buttonPin21);
+   buttonState22 = digitalRead(buttonPin22);
+   buttonState23 = digitalRead(buttonPin23);
+   buttonState24 = digitalRead(buttonPin24);
+   buttonState25 = digitalRead(buttonPin25);
+   buttonState26 = digitalRead(buttonPin26);
+   buttonState27 = digitalRead(buttonPin27);
+   buttonState28 = digitalRead(buttonPin28);
+   buttonState29 = digitalRead(buttonPin29);
+   buttonState30 = digitalRead(buttonPin30);
+   buttonState31 = digitalRead(buttonPin31);
+   buttonState32 = digitalRead(buttonPin32);
   
   
-
 
   
     if (buttonState1 == LOW)  // Button 1 
@@ -311,13 +312,13 @@ void loop()
       { 
 
       }
-	  
+    
  
     if (buttonState16 == LOW)  // Button 16 
       { 
   
       }
-	  
+    
     
     if (buttonState17 == LOW)  // Button 17 
       { 
@@ -327,77 +328,77 @@ void loop()
     if (buttonState18 == LOW)  // Button 18 
       { 
   
-      }	  
+      }   
 
     if (buttonState19 == LOW)  // Button 19 
       { 
   
-      }	  
-	  
+      }   
+    
     if (buttonState20 == LOW)  // Button 20 
       { 
   
-      }	  
+      }   
 
     if (buttonState21 == LOW)  // Button 21 
       { 
   
-      }	
+      } 
 
     if (buttonState22 == LOW)  // Button 22 
       { 
   
-      }	
+      } 
 
     if (buttonState23 == LOW)  // Button 23 
       { 
   
-      }	
+      } 
 
     if (buttonState24 == LOW)  // Button 24 
       { 
   
-      }	
+      } 
 
     if (buttonState25 == LOW)  // Button 25
       { 
   
-      }	
+      } 
 
     if (buttonState26 == LOW)  // Button 26
       { 
   
-      }	
+      } 
 
     if (buttonState27 == LOW)  // Button 27 
       { 
   
-      }	
+      } 
 
     if (buttonState28 == LOW)  // Button 28 
       { 
   
-      }	
+      } 
 
     if (buttonState29 == LOW)  // Button 29 
       { 
   
-      }	
+      } 
 
     if (buttonState30 == LOW)  // Button 30 
       { 
   
-      }	
+      } 
 
     if (buttonState31 == LOW)  // Button 31
       { 
   
-      }	
+      } 
 
     if (buttonState32 == LOW)  // Button 32
       { 
   
-      }	
+      } 
   
       
 }
