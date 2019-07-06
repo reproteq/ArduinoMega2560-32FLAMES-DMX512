@@ -104,7 +104,7 @@ int buttonState32 = 0;
 void setup() 
 {   
  
-int buttonState1  = 0; 
+  int buttonState1  = 0; 
   int buttonState2  = 0; 
   int buttonState3  = 0;
   int buttonState4  = 0; 
@@ -136,7 +136,7 @@ int buttonState1  = 0;
   int buttonState30 = 0; 
   int buttonState31 = 0;
   int buttonState32 = 0;  
-   
+  pinMode(ledPin, OUTPUT);  
   pinMode(2, OUTPUT);
   digitalWrite(2, HIGH);
   DmxSimple.usePin(4);
