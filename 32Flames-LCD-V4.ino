@@ -30,22 +30,22 @@ pin 13 led
 ---------------------------------------------------------
 Display   :  Arduino
         
-1	VSS GND			marron
-2	VDD +5V			rojo
-3	V0 --> R450Ohm >> gnd		rosa
-4	RS PIN7			amar
-5	RW GND			
-6	EN PIN8			azul-marino
-7	D0			
-8	D1			
-9	D2			
-10	D3			
-11	D4 pin 9 			marron
-12	D5 pin 10			rojo
-13	D6 pin 11			rosa
-14	D7 pin 12			amar
-15	A -> R220 ->5v		verde
-16	K  gnd			azul-marino
+1  VSS GND     marron
+2 VDD +5V     rojo
+3 V0 --> R450Ohm >> gnd   rosa
+4 RS PIN7     amar
+5 RW GND      
+6 EN PIN8     azul-marino
+7 D0      
+8 D1      
+9 D2      
+10  D3      
+11  D4 pin 9      marron
+12  D5 pin 10     rojo
+13  D6 pin 11     rosa
+14  D7 pin 12     amar
+15  A -> R220 ->5v    verde
+16  K  gnd      azul-marino
 
 
 ---------------------------------------------------------
@@ -163,8 +163,11 @@ void setup()
   int buttonState32 = 0;  
   pinMode(ledPin, OUTPUT); 
   lcd.begin(16, 2); // inicializar el LCD
-  lcd.print("FlamesPiroTomas"); // Enviar el mensaje 
-   
+  lcd.setCursor(0, 0);
+  lcd.print("Flames PiroTomas"); // Enviar el mensaje 
+  lcd.setCursor(0, 1);
+  lcd.print("TT 2019 Fw.4.0"); // Enviar el mensaje 
+    
   pinMode(2, OUTPUT);
   digitalWrite(2, HIGH);
   DmxSimple.usePin(4);
@@ -248,7 +251,11 @@ void loop()
     if (buttonState1 == LOW)  // Button 1 
       { 
        //secuencia  1 200ms
-       lcd.print("S1 1 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.1       200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(1, 255 );
        delay (200 );
@@ -260,7 +267,11 @@ void loop()
     if (buttonState2 == LOW)  // Button 2
       {
        //secuencia  2 200ms
-       lcd.print("S2 2 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.2       200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("2               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(2, 255 );
        delay (200 );
@@ -272,7 +283,11 @@ void loop()
     if (buttonState3 == LOW)  // Button 3  
       {
        //secuencia  3 200ms
-       lcd.print("S3 3 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.3       200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("3               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(3, 255 );
        delay (200 );
@@ -284,7 +299,11 @@ void loop()
     if (buttonState4 == LOW)  // Button 4 
       { 
        //secuencia  4 200ms
-       lcd.print("S4 4 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.4       200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("4               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on     
        DmxSimple.write(4, 255 );
        delay (200 );
@@ -297,7 +316,11 @@ void loop()
     if (buttonState5 == LOW)  // Button 5 
       { 
        //secuencia  5 200ms
-       lcd.print("S5 5 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.5       200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("5               "); // Enviar el mensaje 
+             
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(5, 255 );
        delay (200 );
@@ -310,7 +333,11 @@ void loop()
     if (buttonState6 == LOW)  // Button 6 
       { 
        //secuencia  1 600ms
-       lcd.print("S6 1 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.6       600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(1, 255 );
        delay (600 );
@@ -323,7 +350,11 @@ void loop()
     if (buttonState7 == LOW)  // Button 7 
       { 
        //secuencia  2 600ms
-       lcd.print("S7 2 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.7       600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("2               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on       
        DmxSimple.write(2, 255 );
        delay (600 );
@@ -335,7 +366,11 @@ void loop()
     if (buttonState8 == LOW)  // Button 8 
       { 
        //secuencia  3 600ms
-       lcd.print("S8 3 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.8       600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("3               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on         
        DmxSimple.write(3, 255 );
        delay (600 );
@@ -347,7 +382,11 @@ void loop()
     if (buttonState9 == LOW)  // Button 9
       { 
        //secuencia  4 600ms
-       lcd.print("S9 4 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.9       600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("4               "); // Enviar el mensaje 
+        
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(4, 255 );
        delay (600 );
@@ -359,7 +398,11 @@ void loop()
     if (buttonState10 == LOW)  // Button 10 
       { 
        //secuencia  5 600ms
-       lcd.print("S10 5 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.10      600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("5               "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on               
        DmxSimple.write(5, 255 );
        delay (600 );
@@ -371,7 +414,11 @@ void loop()
     if (buttonState11 == LOW)  // Button 11  
       { 
        // simultanea  2,4  600ms
-       lcd.print("S11 2-4 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.11      600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("24              "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
        DmxSimple.write(2, 255 );
        DmxSimple.write(4, 255 );
@@ -385,7 +432,11 @@ void loop()
     if (buttonState12 == LOW)  // Button 12 
       { 
        // simultanea  1,3,5  600ms 
-       lcd.print("S12 1-3-5 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.12      600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("135             "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(1, 255 );
        DmxSimple.write(3, 255 );
@@ -402,7 +453,11 @@ void loop()
     if (buttonState13 == LOW)  // Button 13 
       { 
        // simultanea 1,2,3,4,5 600ms 
-       lcd.print("S13 1-2-3-4-5 600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.13      600ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("12345           "); // Enviar el mensaje 
+       
        digitalWrite(ledPin, HIGH); // led pin 13on    
          // abrir todos los inyectores 
        DmxSimple.write(1, 255 );
@@ -425,7 +480,11 @@ void loop()
     if (buttonState14 == LOW)  // Button 14  
       {  
        //consecutivas 1,2,3,4,5 200ms 
-       lcd.print("S14 1,2,3,4,5 200ms"); // Enviar el mensaje    
+       lcd.setCursor(0, 0);
+       lcd.print("SW.14      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1 -> 5          "); // Enviar el mensaje 
+           
        digitalWrite(ledPin, HIGH); // led pin 13on  
        // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
@@ -450,7 +509,11 @@ void loop()
     if (buttonState15 == LOW)  // Button 15  
       { 
       //consecutivas 5,4,3,2,1 200ms
-       lcd.print("S15 5,4,3,2,1 200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.15      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("5 -> 1          "); // Enviar el mensaje 
+
        digitalWrite(ledPin, HIGH); // led pin 13on
        // abrir cerrar uno a uno 
        DmxSimple.write(5, 255 );
@@ -475,7 +538,12 @@ void loop()
     if (buttonState16 == LOW)  // Button 16 
       { 
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
-       lcd.print("S16 1,2,3,4,5,4,3,2,1 200ms "); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.16      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1 -> 5 -> 1     "); // Enviar el mensaje 
+              
+ 
        digitalWrite(ledPin, HIGH); // led pin 13on
        // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
@@ -512,7 +580,11 @@ void loop()
     if (buttonState17 == LOW)  // Button 17 
       { 
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
-       lcd.print("S17 5,4,3,2,1,2,3,4,5 200ms  "); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.17      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("5 -> 1 -> 5     "); // Enviar el mensaje
+        
        digitalWrite(ledPin, HIGH); // led pin 13on      
        // abrir cerrar uno a uno 
        DmxSimple.write(5, 255 );
@@ -548,7 +620,11 @@ void loop()
     if (buttonState18 == LOW)  // Button 18 
       { 
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
-       lcd.print("S18 3,2-4, 1-5, 2-4, 3 200ms"); // Enviar el mensaje   
+       lcd.setCursor(0, 0);
+       lcd.print("SW.18      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("3,24,15,24,3    "); // Enviar el mensaje
+       
        digitalWrite(ledPin, HIGH); // led pin 13on
        // abrir cerrar uno a uno 
        DmxSimple.write(3, 255 );
@@ -578,6 +654,11 @@ void loop()
     if (buttonState19 == LOW)  // Button 19 
       { 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
+       lcd.setCursor(0, 0);
+       lcd.print("SW.19      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("15,24,3,24,15   "); // Enviar el mensaje
+       
        lcd.print("S19 1-5, 2-4, 3, 2-4, 1-5 200ms"); // Enviar el mensaje  
        digitalWrite(ledPin, HIGH); // led pin 13on       
        // abrir cerrar uno a uno 
@@ -610,7 +691,11 @@ void loop()
     if (buttonState20 == LOW)  // Button 20 
       { 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
-       lcd.print("S20 1-5, 2-4, 3, 2-4, 1-5 200ms "); // Enviar el mensaje  
+       lcd.setCursor(0, 0);
+       lcd.print("SW.20      200ms"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("15,24,3,24,15   "); // Enviar el mensaje
+       
        digitalWrite(ledPin, HIGH); // led pin 13on      
        // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
@@ -642,6 +727,11 @@ void loop()
     if (buttonState21 == LOW)  // Button 21 
       { 
          //consecutivas 1,2,3,4,5 100ms  x3
+       lcd.setCursor(0, 0);
+       lcd.print("SW.21   100ms x3"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1 -> 5          "); // Enviar el mensaje
+               
        lcd.print("S21 1,2,3,4,5 100ms x3"); // Enviar el mensaje    
        digitalWrite(ledPin, HIGH); // led pin 13on  
        // abrir cerrar uno a uno 
@@ -660,7 +750,7 @@ void loop()
        DmxSimple.write(5, 255 );
        delay (100 );    
        DmxSimple.write(5, 0 );  
-	   // abrir cerrar uno a uno 
+     // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
        delay (100 ); 
        DmxSimple.write(1, 0 ); 
@@ -691,14 +781,18 @@ void loop()
        DmxSimple.write(4, 0 );          
        DmxSimple.write(5, 255 );
        delay (100 );    
-       DmxSimple.write(5, 0 );  	   
-       digitalWrite(ledPin, LOW);  // led pin 13off 	   
+       DmxSimple.write(5, 0 );       
+       digitalWrite(ledPin, LOW);  // led pin 13off      
       } 
 
     if (buttonState22 == LOW)  // Button 22 
       { 
         //consecutivas 5,4,3,2,1 100ms x3
-       lcd.print("S22 5,4,3,2,1 100ms x3"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.22   100ms x3"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("5 -> 1          "); // Enviar el mensaje
+               
        digitalWrite(ledPin, HIGH); // led pin 13on
        // abrir cerrar uno a uno 
        DmxSimple.write(5, 255 );
@@ -732,7 +826,7 @@ void loop()
        DmxSimple.write(1, 255 );
        delay (100 );    
        DmxSimple.write(1, 0 );  
-	   // abrir cerrar uno a uno 
+     // abrir cerrar uno a uno 
        DmxSimple.write(5, 255 );
        delay (100 ); 
        DmxSimple.write(5, 0 ); 
@@ -747,14 +841,18 @@ void loop()
        DmxSimple.write(2, 0 );          
        DmxSimple.write(1, 255 );
        delay (100 );    
-       DmxSimple.write(1, 0 );  	   
+       DmxSimple.write(1, 0 );       
        digitalWrite(ledPin, LOW);  // led pin 13off  
       } 
 
     if (buttonState23 == LOW)  // Button 23 
       { 
-       //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3 
-       lcd.print("S23 1,2,3,4,5,4,3,2,1 100ms x3"); // Enviar el mensaje 
+       //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
+       lcd.setCursor(0, 0);
+       lcd.print("SW.23   100ms x3"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("1 -> 5 -> 1     "); // Enviar el mensaje
+               
        digitalWrite(ledPin, HIGH); // led pin 13on
        // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
@@ -846,83 +944,88 @@ void loop()
     if (buttonState24 == LOW)  // Button 24 
       { 
         //secuencia  battuka
-       lcd.print("S24 battuka"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.24   batukada"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("12 -> 45        "); // Enviar el mensaje
+        
+
        digitalWrite(ledPin, HIGH); // led pin 13on   
-	   //battuka iz
+       //battuka iz
        DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );
+       DmxSimple.write(2, 255 );
        delay (400 );  
        DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );
        delay (200 );  
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );
        delay (200 );  
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );	
-	   delay (100 ); 
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );	
-	   delay (100 ); 
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );
-	   delay (100 ); 
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
-	   DmxSimple.write(1, 255 );
-	   DmxSimple.write(2, 255 );
-	   delay (100 ); 
-	   DmxSimple.write(1, 0 );
-	   DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );  
+       delay (100 ); 
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );  
+       delay (100 ); 
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );
+       delay (100 ); 
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
+       DmxSimple.write(1, 255 );
+       DmxSimple.write(2, 255 );
+       delay (100 ); 
+       DmxSimple.write(1, 0 );
+       DmxSimple.write(2, 0 );
    
-   	   delay (200 );
-	   
-	   	   //battuka de
+       delay (200 );
+     
+         //battuka de
        DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );
+       DmxSimple.write(5, 255 );
        delay (400 );  
        DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );
        delay (200 );  
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );
        delay (200 );  
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );	
-	   delay (100 ); 
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );	
-	   delay (100 ); 
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );
-	   delay (100 ); 
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
-	   DmxSimple.write(4, 255 );
-	   DmxSimple.write(5, 255 );
-	   delay (100 ); 
-	   DmxSimple.write(4, 0 );
-	   DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );  
+       delay (100 ); 
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );  
+       delay (100 ); 
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );
+       delay (100 ); 
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
+       DmxSimple.write(4, 255 );
+       DmxSimple.write(5, 255 );
+       delay (100 ); 
+       DmxSimple.write(4, 0 );
+       DmxSimple.write(5, 0 );
 
 
        digitalWrite(ledPin, LOW);  // led pin 13off   
@@ -930,18 +1033,28 @@ void loop()
 
     if (buttonState25 == LOW)  // Button 25
       { 
-  
+       lcd.setCursor(0, 0);
+       lcd.print("SW.25           "); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("                "); // Enviar el mensaje
       } 
 
     if (buttonState26 == LOW)  // Button 26
       { 
-  
+       lcd.setCursor(0, 0);
+       lcd.print("SW.26           "); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("                "); // Enviar el mensaje 
       } 
 
     if (buttonState27 == LOW)  // Button 27 
       { 
        // abrir 3
-       lcd.print("S29 3 ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.27         ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("3               "); // Enviar el mensaje
+              
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(3, 255 );  
        digitalWrite(ledPin, LOW);  // led pin 13off   
@@ -950,7 +1063,11 @@ void loop()
     if (buttonState28 == LOW)  // Button 28 
       { 
        // cerrar 3
-       lcd.print("S29 3 OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.28        OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("3               "); // Enviar el mensaje
+              
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(3, 0 );  
        digitalWrite(ledPin, LOW);  // led pin 13off  
@@ -959,7 +1076,11 @@ void loop()
     if (buttonState29 == LOW)  // Button 29 
       { 
          // abrir todos los inyectores
-       lcd.print("S29 1,2,3,4,5 ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.29         ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("TODOS           "); // Enviar el mensaje
+               
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(1, 255 );
        DmxSimple.write(2, 255 );  
@@ -972,7 +1093,11 @@ void loop()
     if (buttonState30 == LOW)  // Button 30 
       { 
          // cerrar todos los inyectores
-       lcd.print("S30 1,2,3,4,5 OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.30        OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("TODOS           "); // Enviar el mensaje
+                
        digitalWrite(ledPin, HIGH); // led pin 13on
        DmxSimple.write(1, 0 );  
        DmxSimple.write(2, 0 );  
@@ -985,7 +1110,11 @@ void loop()
     if (buttonState31 == LOW)  // Button 31
       { 
        // encender piloto
-       lcd.print("S31 Piloto ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.31         ON"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("PILOTOS         "); // Enviar el mensaje
+              
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
        digitalWrite(ledPin, LOW);  // led pin 13off         
@@ -994,7 +1123,10 @@ void loop()
     if (buttonState32 == LOW)  // Button 32
       { 
        // apagar piloto
-       lcd.print("S32 Piloto OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 0);
+       lcd.print("SW.32        OFF"); // Enviar el mensaje 
+       lcd.setCursor(0, 1);
+       lcd.print("PILOTOS         "); // Enviar el mensaje 
        digitalWrite(ledPin, HIGH); // led pin 13on   
        DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
        digitalWrite(ledPin, LOW);  // led pin 13off        
