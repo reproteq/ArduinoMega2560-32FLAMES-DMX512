@@ -164,10 +164,10 @@ void setup()
   pinMode(ledPin, OUTPUT); 
   lcd.begin(16, 2); // inicializar el LCD
   lcd.setCursor(0, 0);
-  lcd.print("Flames PiroTomas"); // Enviar el mensaje 
+  lcd.print("PIROTOMAS   2019"); // Enviar el mensaje     
   lcd.setCursor(0, 1);
-  lcd.print("TT 2019 Fw.4.0"); // Enviar el mensaje 
-    
+  //lcd.print((char) 126); //flecha 0111 1110  
+  lcd.print("FLAMEONE TT FW.4"); // Enviar el mensaje 
   pinMode(2, OUTPUT);
   digitalWrite(2, HIGH);
   DmxSimple.usePin(4);
