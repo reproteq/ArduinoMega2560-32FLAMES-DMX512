@@ -346,7 +346,7 @@ void loop(){
   if (buttonState3 == buttonStateDebounced3) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState3 != buttonStateSave3) {     // el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia3");
 
        //secuencia  3 200ms
        lcd.setCursor(0, 0);
@@ -370,7 +370,7 @@ void loop(){
   if (buttonState4 == buttonStateDebounced4) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState4 != buttonStateSave4) {     // el estado de botón ha cambiado!
       if (buttonState4 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia4");
 
        //secuencia  4 200ms
        lcd.setCursor(0, 0);
@@ -394,7 +394,7 @@ void loop(){
   if (buttonState5 == buttonStateDebounced5) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState5 != buttonStateSave5) {     // el estado de botón ha cambiado!
       if (buttonState5 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia5");
 
        //secuencia  5 200ms
        lcd.setCursor(0, 0);
@@ -418,7 +418,7 @@ void loop(){
   if (buttonState6 == buttonStateDebounced6) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState6 != buttonStateSave6) {     // el estado de botón ha cambiado!
       if (buttonState6 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia6");
 
         //secuencia  1 600ms
        lcd.setCursor(0, 0);
@@ -442,7 +442,7 @@ void loop(){
   if (buttonState7 == buttonStateDebounced7) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState7 != buttonStateSave7) {     // el estado de botón ha cambiado!
       if (buttonState7 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia7");
 
        //secuencia  2 600ms
        lcd.setCursor(0, 0);
@@ -466,7 +466,7 @@ void loop(){
   if (buttonState8 == buttonStateDebounced8) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState8 != buttonStateSave8) {     // el estado de botón ha cambiado!
       if (buttonState8 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia8");
 
         //secuencia  3 600ms
        lcd.setCursor(0, 0);
@@ -490,7 +490,7 @@ void loop(){
   if (buttonState9 == buttonStateDebounced9) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState9 != buttonStateSave9) {     // el estado de botón ha cambiado!
       if (buttonState9 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia9");
 
        //secuencia  4 600ms
        lcd.setCursor(0, 0);
@@ -514,7 +514,7 @@ void loop(){
   if (buttonState10 == buttonStateDebounced10) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState10 != buttonStateSave10) {     // el estado de botón ha cambiado!
       if (buttonState10 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia10");
 
         //secuencia  5 600ms
        lcd.setCursor(0, 0);
@@ -538,7 +538,7 @@ void loop(){
   if (buttonState11 == buttonStateDebounced11) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState11 != buttonStateSave11) {     // el estado de botón ha cambiado!
       if (buttonState11 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia11");
 
         // simultanea  2,4  600ms
        lcd.setCursor(0, 0);
@@ -564,7 +564,7 @@ void loop(){
   if (buttonState12 == buttonStateDebounced12) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState12 != buttonStateSave12) {     // el estado de botón ha cambiado!
       if (buttonState12 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia12");
 
         // simultanea  1,3,5  600ms 
        lcd.setCursor(0, 0);
@@ -592,7 +592,7 @@ void loop(){
   if (buttonState13 == buttonStateDebounced13) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState13 != buttonStateSave13) {     // el estado de botón ha cambiado!
       if (buttonState13 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia13");
 
        // simultanea 1,2,3,4,5 600ms 
        lcd.setCursor(0, 0);
@@ -626,7 +626,7 @@ void loop(){
   if (buttonState14 == buttonStateDebounced14) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState14 != buttonStateSave14) {     // el estado de botón ha cambiado!
       if (buttonState14 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia14");
 
        //consecutivas 1,2,3,4,5 200ms 
        lcd.setCursor(0, 0);
@@ -663,7 +663,7 @@ void loop(){
   if (buttonState15 == buttonStateDebounced15) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState15 != buttonStateSave15) {     // el estado de botón ha cambiado!
       if (buttonState15 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia15");
 
       //consecutivas 5,4,3,2,1 200ms
        lcd.setCursor(0, 0);
@@ -700,7 +700,7 @@ void loop(){
   if (buttonState16 == buttonStateDebounced16) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState16 != buttonStateSave16) {     // el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia16");
 
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
        lcd.setCursor(0, 0);
@@ -752,7 +752,7 @@ void loop(){
   if (buttonState17 == buttonStateDebounced17) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState17 != buttonStateSave1) {     // el estado de botón ha cambiado!
       if (buttonState17 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia17");
 
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
        lcd.setCursor(0, 0);
@@ -801,7 +801,7 @@ void loop(){
   if (buttonState18 == buttonStateDebounced18) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState18 != buttonStateSave18) {     // el estado de botón ha cambiado!
       if (buttonState18 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia18");
 
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
        lcd.setCursor(0, 0);
@@ -844,7 +844,7 @@ void loop(){
   if (buttonState19 == buttonStateDebounced19) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState19 != buttonStateSave19) {     // el estado de botón ha cambiado!
       if (buttonState19 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia19");
 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
        lcd.setCursor(0, 0);
@@ -890,7 +890,7 @@ void loop(){
   if (buttonState20 == buttonStateDebounced20) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState20 != buttonStateSave20) {     // el estado de botón ha cambiado!
       if (buttonState20 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia20");
 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
        lcd.setCursor(0, 0);
@@ -935,7 +935,7 @@ void loop(){
   if (buttonState21 == buttonStateDebounced21) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState21 != buttonStateSave21) {     // el estado de botón ha cambiado!
       if (buttonState21 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia21");
 
          //consecutivas 1,2,3,4,5 100ms  x3
        lcd.setCursor(0, 0);
@@ -1005,7 +1005,7 @@ void loop(){
   if (buttonState22 == buttonStateDebounced22) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState22 != buttonStateSave22) {     // el estado de botón ha cambiado!
       if (buttonState22 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia22");
 
 
         //consecutivas 5,4,3,2,1 100ms x3
@@ -1075,7 +1075,7 @@ void loop(){
   if (buttonState23 == buttonStateDebounced23) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState23 != buttonStateSave23) {     // el estado de botón ha cambiado!
       if (buttonState23 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia23");
 
      //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
        lcd.setCursor(0, 0);
@@ -1180,7 +1180,7 @@ void loop(){
   if (buttonState24 == buttonStateDebounced24) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState24 != buttonStateSave24) {     // el estado de botón ha cambiado!
       if (buttonState24 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia24");
 
         //secuencia  battuka
        lcd.setCursor(0, 0);
@@ -1279,7 +1279,7 @@ void loop(){
   if (buttonState25 == buttonStateDebounced25) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState25 != buttonStateSave25) {     // el estado de botón ha cambiado!
       if (buttonState25 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia25");
 
         lcd.setCursor(0, 0);
        lcd.print("SW.25           "); // Enviar el mensaje 
@@ -1296,7 +1296,7 @@ void loop(){
   if (buttonState26 == buttonStateDebounced26) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState26 != buttonStateSave26) {     // el estado de botón ha cambiado!
       if (buttonState26 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia26 vacia");
 
        lcd.setCursor(0, 0);
        lcd.print("SW.26           "); // Enviar el mensaje 
@@ -1313,7 +1313,7 @@ void loop(){
   if (buttonState27 == buttonStateDebounced27) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState27 != buttonStateSave27) {     // el estado de botón ha cambiado!
       if (buttonState27 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia27 vacia");
 
        // abrir 3
        lcd.setCursor(0, 0);
@@ -1335,7 +1335,7 @@ void loop(){
   if (buttonState28 == buttonStateDebounced28) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState28 != buttonStateSave28) {     // el estado de botón ha cambiado!
       if (buttonState28 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia28");
 
        // cerrar 3
        lcd.setCursor(0, 0);
@@ -1357,7 +1357,7 @@ void loop(){
   if (buttonState29 == buttonStateDebounced29) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState29 != buttonStateSave29) {     // el estado de botón ha cambiado!
       if (buttonState29 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia29");
 
          // abrir todos los inyectores
        lcd.setCursor(0, 0);
@@ -1383,7 +1383,7 @@ void loop(){
   if (buttonState30 == buttonStateDebounced30) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState30 != buttonStateSave30) {     // el estado de botón ha cambiado!
       if (buttonState30 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia30");
 
          // cerrar todos los inyectores
        lcd.setCursor(0, 0);
@@ -1409,7 +1409,7 @@ void loop(){
   if (buttonState31 == buttonStateDebounced31) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState31 != buttonStateSave31) {     // el estado de botón ha cambiado!
       if (buttonState31 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia31");
 
        // encender piloto
        lcd.setCursor(0, 0);
@@ -1431,7 +1431,7 @@ void loop(){
   if (buttonState32 == buttonStateDebounced32) {             // asegúrar que conseguimos 2 lecturas constantes
     if (buttonState32 != buttonStateSave32) {     // el estado de botón ha cambiado!
       if (buttonState32 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia");
+    Serial.println("secuencia32");
 
        // apagar piloto
        lcd.setCursor(0, 0);
