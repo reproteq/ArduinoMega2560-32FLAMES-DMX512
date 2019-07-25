@@ -37,6 +37,7 @@ const int buttonPin32 = 53;
 
 const int ledPin      = 13; //led pin
 
+
 int buttonState1;                        // variable para lectura del estado del pin 
 int buttonState2;                        // variable para lectura del estado del pin 
 int buttonState3;
@@ -138,7 +139,8 @@ int buttonStateSave30;
 int buttonStateSave31; 
 int buttonStateSave32; 
 
-
+int working = 0;
+  
 void setup() {  
   Serial.begin(9600);                // Comunicación serie puesta a 9600bps
   Serial.println("DBG Setup");
@@ -153,6 +155,7 @@ void setup() {
   digitalWrite(2, HIGH);
   DmxSimple.usePin(4);
   DmxSimple.maxChannel(6); //number of channels
+
   
   pinMode(buttonPin1, INPUT);    // pone el pin switch como entrada
   pinMode(buttonPin2, INPUT);    // pone el pin switch como entrada
@@ -296,9 +299,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //1
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState1 == buttonStateDebounced1) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState1 != buttonStateSave1) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState1 != buttonStateSave1) {     // el estado de botón ha cambiado!
       if (buttonState1 == LOW) {          // compruebe si el botón es presionado 
+      working = 1;
        Serial.println("secuencia1");
        //secuencia  1 200ms
        lcd.setCursor(0, 0);
@@ -311,7 +315,7 @@ void loop(){
        delay (200 );
        DmxSimple.write(1, 0 );  
        digitalWrite(ledPin, LOW);  // led pin 13off 
-       
+        working = 0;
       }
     }
     buttonStateSave1 = buttonState1;               // guardar el nuevo estado en la variable
@@ -319,9 +323,10 @@ void loop(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //2  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (buttonState2 == buttonStateDebounced2) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState2 != buttonStateSave2) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState2 != buttonStateSave2) {     // el estado de botón ha cambiado!
       if (buttonState2 == LOW) {          // compruebe si el botón es presionado 
+     working = 1;
        Serial.println("secuencia2");
        //secuencia  2 200ms
 
@@ -335,7 +340,7 @@ void loop(){
        delay (200 );
        DmxSimple.write(2, 0 );  
        digitalWrite(ledPin, LOW);  // led pin 13off    
-        
+       working = 0; 
       }
     }
     buttonStateSave2 = buttonState2;               // guardar el nuevo estado en la variable
@@ -343,9 +348,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState3 == buttonStateDebounced3) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState3 != buttonStateSave3) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState3 != buttonStateSave3) {     // el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // compruebe si el botón es presionado
+     working = 1;	  
     Serial.println("secuencia3");
 
        //secuencia  3 200ms
@@ -358,7 +364,8 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (200 );
        DmxSimple.write(3, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off 
+	   working = 0;    
         
       }
     }
@@ -367,10 +374,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //4 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState4 == buttonStateDebounced4) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState4 != buttonStateSave4) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState4 != buttonStateSave4) {     // el estado de botón ha cambiado!
       if (buttonState4 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia4");
+     working = 1;
+	  Serial.println("secuencia4");
 
        //secuencia  4 200ms
        lcd.setCursor(0, 0);
@@ -382,7 +390,8 @@ void loop(){
        DmxSimple.write(4, 255 );
        delay (200 );
        DmxSimple.write(4, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -391,10 +400,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //5  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState5 == buttonStateDebounced5) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState5 != buttonStateSave5) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState5 != buttonStateSave5) {     // el estado de botón ha cambiado!
       if (buttonState5 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia5");
+     working = 1;
+	  Serial.println("secuencia5");
 
        //secuencia  5 200ms
        lcd.setCursor(0, 0);
@@ -406,7 +416,8 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );
        DmxSimple.write(5, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -415,9 +426,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //6 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState6 == buttonStateDebounced6) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState6 != buttonStateSave6) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState6 != buttonStateSave6) {     // el estado de botón ha cambiado!
       if (buttonState6 == LOW) {          // compruebe si el botón es presionado
+	 working = 1;
     Serial.println("secuencia6");
 
         //secuencia  1 600ms
@@ -430,7 +442,8 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (600 );
        DmxSimple.write(1, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -439,10 +452,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //7 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState7 == buttonStateDebounced7) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState7 != buttonStateSave7) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState7 != buttonStateSave7) {     // el estado de botón ha cambiado!
       if (buttonState7 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia7");
+     working = 1; 
+     Serial.println("secuencia7");
 
        //secuencia  2 600ms
        lcd.setCursor(0, 0);
@@ -454,7 +468,8 @@ void loop(){
        DmxSimple.write(2, 255 );
        delay (600 );
        DmxSimple.write(2, 0 );   
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -463,10 +478,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //8
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState8 == buttonStateDebounced8) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState8 != buttonStateSave8) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState8 != buttonStateSave8) {     // el estado de botón ha cambiado!
       if (buttonState8 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia8");
+     working = 1;
+	  Serial.println("secuencia8");
 
         //secuencia  3 600ms
        lcd.setCursor(0, 0);
@@ -478,7 +494,8 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (600 );
        DmxSimple.write(3, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -487,10 +504,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //9  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState9 == buttonStateDebounced9) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState9 != buttonStateSave9) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState9 != buttonStateSave9) {     // el estado de botón ha cambiado!
       if (buttonState9 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia9");
+     working = 1;
+	  Serial.println("secuencia9");
 
        //secuencia  4 600ms
        lcd.setCursor(0, 0);
@@ -502,7 +520,8 @@ void loop(){
        DmxSimple.write(4, 255 );
        delay (600 );
        DmxSimple.write(4, 0 );   
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -511,10 +530,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //10  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState10 == buttonStateDebounced10) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState10 != buttonStateSave10) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState10 != buttonStateSave10) {     // el estado de botón ha cambiado!
       if (buttonState10 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia10");
+     working = 1; 
+      Serial.println("secuencia10");
 
         //secuencia  5 600ms
        lcd.setCursor(0, 0);
@@ -526,7 +546,8 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (600 );
        DmxSimple.write(5, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -535,9 +556,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //11  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState11 == buttonStateDebounced11) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState11 != buttonStateSave11) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState11 != buttonStateSave11) {     // el estado de botón ha cambiado!
       if (buttonState11 == LOW) {          // compruebe si el botón es presionado
+	       working = 1;
     Serial.println("secuencia11");
 
         // simultanea  2,4  600ms
@@ -552,7 +574,8 @@ void loop(){
        delay (600 );  
        DmxSimple.write(2, 0 );   
        DmxSimple.write(4, 0 ); 
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -561,9 +584,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //12  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState12 == buttonStateDebounced12) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState12 != buttonStateSave12) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState12 != buttonStateSave12) {     // el estado de botón ha cambiado!
       if (buttonState12 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia12");
 
         // simultanea  1,3,5  600ms 
@@ -580,7 +604,8 @@ void loop(){
        DmxSimple.write(1, 0 );   
        DmxSimple.write(3, 0 );
        DmxSimple.write(5, 0 );       
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -589,9 +614,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //13  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState13 == buttonStateDebounced13) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState13 != buttonStateSave13) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState13 != buttonStateSave13) {     // el estado de botón ha cambiado!
       if (buttonState13 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia13");
 
        // simultanea 1,2,3,4,5 600ms 
@@ -614,7 +640,8 @@ void loop(){
        DmxSimple.write(3, 0 );  
        DmxSimple.write(4, 0 );  
        DmxSimple.write(5, 0 );    
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -623,9 +650,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //14  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState14 == buttonStateDebounced14) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState14 != buttonStateSave14) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState14 != buttonStateSave14) {     // el estado de botón ha cambiado!
       if (buttonState14 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia14");
 
        //consecutivas 1,2,3,4,5 200ms 
@@ -651,7 +679,8 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );    
        DmxSimple.write(5, 0 );       
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -660,9 +689,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //15  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState15 == buttonStateDebounced15) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState15 != buttonStateSave15) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState15 != buttonStateSave15) {     // el estado de botón ha cambiado!
       if (buttonState15 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia15");
 
       //consecutivas 5,4,3,2,1 200ms
@@ -688,7 +718,8 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (200 );    
        DmxSimple.write(1, 0 );         
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -697,9 +728,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //16  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState16 == buttonStateDebounced16) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState16 != buttonStateSave16) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState16 != buttonStateSave16) {     // el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia16");
 
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
@@ -738,7 +770,8 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (200 );    
        DmxSimple.write(1, 0 );       
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -749,9 +782,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //17
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState17 == buttonStateDebounced17) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState17 != buttonStateSave1) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState17 != buttonStateSave1) {     // el estado de botón ha cambiado!
       if (buttonState17 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia17");
 
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
@@ -789,7 +823,8 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );    
        DmxSimple.write(5, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
        
       }
     }
@@ -798,9 +833,10 @@ void loop(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //18  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (buttonState18 == buttonStateDebounced18) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState18 != buttonStateSave18) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState18 != buttonStateSave18) {     // el estado de botón ha cambiado!
       if (buttonState18 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia18");
 
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
@@ -832,7 +868,8 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (200 );  
        DmxSimple.write(3, 0 );      
-       digitalWrite(ledPin, LOW);  // led pin 13off      
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;      
         
       }
     }
@@ -841,9 +878,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //19
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState19 == buttonStateDebounced19) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState19 != buttonStateSave19) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState19 != buttonStateSave19) {     // el estado de botón ha cambiado!
       if (buttonState19 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia19");
 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
@@ -878,7 +916,8 @@ void loop(){
        delay (200 ); 
        DmxSimple.write(1, 0 ); 
        DmxSimple.write(5, 0 );
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -887,9 +926,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //20
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState20 == buttonStateDebounced20) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState20 != buttonStateSave20) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState20 != buttonStateSave20) {     // el estado de botón ha cambiado!
       if (buttonState20 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia20");
 
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
@@ -923,7 +963,8 @@ void loop(){
        delay (100 ); 
        DmxSimple.write(1, 0 ); 
        DmxSimple.write(5, 0 );
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -932,9 +973,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //21
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState21 == buttonStateDebounced21) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState21 != buttonStateSave21) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState21 != buttonStateSave21) {     // el estado de botón ha cambiado!
       if (buttonState21 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia21");
 
          //consecutivas 1,2,3,4,5 100ms  x3
@@ -993,7 +1035,8 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (100 );    
        DmxSimple.write(5, 0 );       
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -1002,9 +1045,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //22
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState22 == buttonStateDebounced22) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState22 != buttonStateSave22) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState22 != buttonStateSave22) {     // el estado de botón ha cambiado!
       if (buttonState22 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia22");
 
 
@@ -1063,7 +1107,8 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (100 );    
        DmxSimple.write(1, 0 );       
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -1072,9 +1117,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //23
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState23 == buttonStateDebounced23) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState23 != buttonStateSave23) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState23 != buttonStateSave23) {     // el estado de botón ha cambiado!
       if (buttonState23 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia23");
 
      //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
@@ -1168,7 +1214,8 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (100 );    
        DmxSimple.write(1, 0 ); 
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off 
+	   working = 0;   
         
       }
     }
@@ -1177,10 +1224,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //24
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState24 == buttonStateDebounced24) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState24 != buttonStateSave24) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState24 != buttonStateSave24) {     // el estado de botón ha cambiado!
       if (buttonState24 == LOW) {          // compruebe si el botón es presionado
-    Serial.println("secuencia24");
+      working = 1;
+      Serial.println("secuencia24");
 
         //secuencia  battuka
        lcd.setCursor(0, 0);
@@ -1268,7 +1316,7 @@ void loop(){
 
 
        digitalWrite(ledPin, LOW);  // led pin 13off    
-        
+        working = 0;
       }
     }
     buttonStateSave24 = buttonState24;               // guardar el nuevo estado en la variable
@@ -1276,16 +1324,16 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //25 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState25 == buttonStateDebounced25) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState25 != buttonStateSave25) {     // el estado de botón ha cambiado!
-      if (buttonState25 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState25 != buttonStateSave25) {     // el estado de botón ha cambiado!
+      if (buttonState25 == LOW) {          // compruebe si el botón es presionado      working = 1;
     Serial.println("secuencia25");
 
         lcd.setCursor(0, 0);
        lcd.print("SW.25           "); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("                "); // Enviar el mensaje 
-        
+	   working = 0;          
       }
     }
     buttonStateSave25 = buttonState25;               // guardar el nuevo estado en la variable
@@ -1293,16 +1341,17 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //26  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState26 == buttonStateDebounced26) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState26 != buttonStateSave26) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState26 != buttonStateSave26) {     // el estado de botón ha cambiado!
       if (buttonState26 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia26 vacia");
 
        lcd.setCursor(0, 0);
        lcd.print("SW.26           "); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("                "); // Enviar el mensaje  
-        
+	   working = 0;          
       }
     }
     buttonStateSave26 = buttonState26;               // guardar el nuevo estado en la variable
@@ -1310,9 +1359,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //27
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState27 == buttonStateDebounced27) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState27 != buttonStateSave27) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState27 != buttonStateSave27) {     // el estado de botón ha cambiado!
       if (buttonState27 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia27 vacia");
 
        // abrir 3
@@ -1323,7 +1373,8 @@ void loop(){
               
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(3, 255 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -1332,9 +1383,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //28
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState28 == buttonStateDebounced28) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState28 != buttonStateSave28) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState28 != buttonStateSave28) {     // el estado de botón ha cambiado!
       if (buttonState28 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia28");
 
        // cerrar 3
@@ -1345,7 +1397,8 @@ void loop(){
               
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(3, 0 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off    
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;    
         
       }
     }
@@ -1354,9 +1407,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //29
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState29 == buttonStateDebounced29) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState29 != buttonStateSave29) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState29 != buttonStateSave29) {     // el estado de botón ha cambiado!
       if (buttonState29 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia29");
 
          // abrir todos los inyectores
@@ -1371,7 +1425,8 @@ void loop(){
        DmxSimple.write(3, 255 );  
        DmxSimple.write(4, 255 );  
        DmxSimple.write(5, 255 );  
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -1380,9 +1435,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //30 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState30 == buttonStateDebounced30) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState30 != buttonStateSave30) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState30 != buttonStateSave30) {     // el estado de botón ha cambiado!
       if (buttonState30 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia30");
 
          // cerrar todos los inyectores
@@ -1397,7 +1453,8 @@ void loop(){
        DmxSimple.write(3, 0 );  
        DmxSimple.write(4, 0 );  
        DmxSimple.write(5, 0 );    
-       digitalWrite(ledPin, LOW);  // led pin 13off  
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;  
         
       }
     }
@@ -1406,9 +1463,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //31
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState31 == buttonStateDebounced31) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState31 != buttonStateSave31) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState31 != buttonStateSave31) {     // el estado de botón ha cambiado!
       if (buttonState31 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia31");
 
        // encender piloto
@@ -1419,7 +1477,8 @@ void loop(){
               
        digitalWrite(ledPin, HIGH); // led pin 13on        
        DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
@@ -1428,9 +1487,10 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //32 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (buttonState32 == buttonStateDebounced32) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (buttonState32 != buttonStateSave32) {     // el estado de botón ha cambiado!
+  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // asegúrar que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState32 != buttonStateSave32) {     // el estado de botón ha cambiado!
       if (buttonState32 == LOW) {          // compruebe si el botón es presionado
+      working = 1;
     Serial.println("secuencia32");
 
        // apagar piloto
@@ -1440,7 +1500,8 @@ void loop(){
        lcd.print("PILOTOS         "); // Enviar el mensaje 
        digitalWrite(ledPin, HIGH); // led pin 13on   
        DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
-       digitalWrite(ledPin, LOW);  // led pin 13off   
+       digitalWrite(ledPin, LOW);  // led pin 13off
+	   working = 0;   
         
       }
     }
