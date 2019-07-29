@@ -1,7 +1,56 @@
+/*
+FLAME CONTROLLER FOR FIREONE 32CUE + ARDUINO MEGA 2560 + DMX SHIELD CTC-DRA-10-R2 
+-------------------------------------------------------------
+Flame machine DMX512 COMMANDS
+1 CH  FLAME 1         0-255 : 0-199 OFF   200-255 ON 
+2 CH  FLAME 2         0-255 : 0-199 OFF   200-255 ON
+3 CH  FLAME 3         0-255 : 0-199 OFF   200-255 ON
+4 CH  FLAME 4         0-255 : 0-199 OFF   200-255 ON
+5 CH  FLAME 5         0-255 : 0-199 OFF   200-255 ON
+6 CH  FLAME PILOT     0-255 : 0-199 OFF   200-255 ON 
+-------------------------------------------------------------
+DMX SHIELD CTC-DRA-10-R2  
+jumpers config:
+EN(run) <==  EN¯ (updt fw) ! Please For update firmware disconect battery 7-12v only usb 3.5v or arduino can dead !
+Slave   ==>  DE  (master)
+TX-io   <==  TX-uart
+RX-io   <==  RX-uart
+Pins 2,3,4 are used to transmit DMX signals
+xlr output to xlr input rgb
+------------------------------------------------------------
+libs
+//https://github.com/PaulStoffregen/DmxSimple
+---------------------------------------------------------
+Arduino buttons pullup hardware layout:
+5V___Button____R10k ___Gnd
+           |___Arduino pins                   
+---------------------------------------------------------
+Display   :  Arduino
+        
+1  VSS GND     marron
+2 VDD +5V     rojo
+3 V0 --> R450Ohm >> gnd   rosa
+4 RS PIN7     amar
+5 RW GND      
+6 EN PIN8     azul-marino
+7 D0      
+8 D1      
+9 D2      
+10  D3      
+11  D4 pin 9      marron
+12  D5 pin 10     rojo
+13  D6 pin 11     rosa
+14  D7 pin 12     amar
+15  A -> R220 ->5v    verde
+16  K  gnd      azul-marino
+---------------------------------------------------------
+*/
+
 #include <DmxSimple.h> 
 #include <LiquidCrystal.h>
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12); //    ( RS, EN, d4, d5, d6, d7)
 
+// vars botones pins arduino
 const int buttonPin1 =  22;      
 const int buttonPin2 =  23;     
 const int buttonPin3 =  24;     
@@ -35,8 +84,9 @@ const int buttonPin30 = 51;
 const int buttonPin31 = 52; 
 const int buttonPin32 = 53;
 
-int buttonState1;                        // variable para lectura del estado del pin 
-int buttonState2;                        // variable para lectura del estado del pin 
+// vars para lectura del estado del pin 
+int buttonState1;                        
+int buttonState2;                        
 int buttonState3;
 int buttonState4; 
 int buttonState5; 
@@ -68,8 +118,9 @@ int buttonState30;
 int buttonState31;
 int buttonState32;
 
-int buttonStateDebounced1;                       // variable para leer el estado delayed/debounced
-int buttonStateDebounced2;                       // variable para leer el estado delayed/debounced
+// vars para leer el estado delayed/debounced
+int buttonStateDebounced1;                       
+int buttonStateDebounced2;                      
 int buttonStateDebounced3; 
 int buttonStateDebounced4; 
 int buttonStateDebounced5; 
@@ -100,9 +151,10 @@ int buttonStateDebounced29;
 int buttonStateDebounced30; 
 int buttonStateDebounced31; 
 int buttonStateDebounced32; 
- 
-int buttonStateSave1;                // variable para mantener el estado del botón
-int buttonStateSave2;                // variable para mantener el estado del botón
+
+// vars para mantener el estado del botón 
+int buttonStateSave1;               
+int buttonStateSave2;                 
 int buttonStateSave3; 
 int buttonStateSave4; 
 int buttonStateSave5; 
@@ -134,21 +186,24 @@ int buttonStateSave30;
 int buttonStateSave31; 
 int buttonStateSave32; 
 
-int working = 0;
+//var para comprobar el estado de la  bandera de trabajo 
+int working = 0; // inicializamos la variable bandera de trabajo abajo
   
+//setup
 void setup() {    
   lcd.begin(16, 2); // inicializar el LCD
-  lcd.setCursor(0, 0);
+  lcd.setCursor(0, 0); //inicializamos la posicion del cursor lcd a la primera linea
   lcd.print("PIROTOMAS   2019"); // Enviar el mensaje     
-  lcd.setCursor(0, 1);
+  lcd.setCursor(0, 1); //inicializamos la posicion del cursor lcd a la segunda linea
   lcd.print("FLAMEONE TT FW.5"); // Enviar el mensaje 
-  pinMode(2, OUTPUT);
-  digitalWrite(2, HIGH);
-  DmxSimple.usePin(4);
+  pinMode(2, OUTPUT); // inicializamos el pin de salida para el shield dmx
+  digitalWrite(2, HIGH); // inicializamos el pin de escritura para el shield dmx
+  DmxSimple.usePin(4); // // inicializamos el pin  para el shield dmx
   DmxSimple.maxChannel(6); //number of channels
   
-  pinMode(buttonPin1, INPUT);    // pone el pin switch como entrada
-  pinMode(buttonPin2, INPUT);    // pone el pin switch como entrada
+  // inicializamos los pins de los botones como entradas
+  pinMode(buttonPin1, INPUT);     
+  pinMode(buttonPin2, INPUT);     
   pinMode(buttonPin3, INPUT);
   pinMode(buttonPin4, INPUT);
   pinMode(buttonPin5, INPUT);
@@ -179,9 +234,10 @@ void setup() {
   pinMode(buttonPin30, INPUT);
   pinMode(buttonPin31, INPUT);
   pinMode(buttonPin32, INPUT);
-
-  buttonStateSave1 = digitalRead(buttonPin1);  // lee el estado inicial
-  buttonStateSave2 = digitalRead(buttonPin2);  // lee el estado inicial
+  
+  // leemos el estado inicial de los pines
+  buttonStateSave1 = digitalRead(buttonPin1); 
+  buttonStateSave2 = digitalRead(buttonPin2);  
   buttonStateSave3 = digitalRead(buttonPin2);
   buttonStateSave4 = digitalRead(buttonPin2); 
   buttonStateSave5 = digitalRead(buttonPin2); 
@@ -214,9 +270,12 @@ void setup() {
   buttonStateSave32 = digitalRead(buttonPin2);
 }
 
+//bucle
 void loop(){
-  buttonState1 = digitalRead(buttonPin1);  // lee el buttonState1or de entrada y almacénlo en buttonState1
-  buttonState2 = digitalRead(buttonPin2);  // lee el buttonState1or de entrada y almacénlo en buttonState1
+
+  // lee el buttonPin  de entrada y almacena su estado en  buttonState
+  buttonState1 = digitalRead(buttonPin1);  
+  buttonState2 = digitalRead(buttonPin2);   
   buttonState3 = digitalRead(buttonPin3);
   buttonState4 = digitalRead(buttonPin4);
   buttonState5 = digitalRead(buttonPin5);
@@ -246,12 +305,14 @@ void loop(){
   buttonState29 = digitalRead(buttonPin29);
   buttonState30 = digitalRead(buttonPin30);
   buttonState31 = digitalRead(buttonPin31);
-  buttonState32 = digitalRead(buttonPin32);      
+  buttonState32 = digitalRead(buttonPin32);  
   
-  delay(10);                     // 10 milisegundos son una cantidad de tiempo buena
+  //espera de ajuste
+  delay(10); 
   
-  buttonStateDebounced1 = digitalRead(buttonPin1); // lea la entrada otra vez para comprobar saltos
-  buttonStateDebounced2 = digitalRead(buttonPin2); // lea la entrada otra vez para comprobar saltos
+  // lee el pin button de entrada otra vez para comprobar saltos y guarda en buttonStateDebounced
+  buttonStateDebounced1 = digitalRead(buttonPin1); 
+  buttonStateDebounced2 = digitalRead(buttonPin2);
   buttonStateDebounced3 = digitalRead(buttonPin3);
   buttonStateDebounced4 = digitalRead(buttonPin4);
   buttonStateDebounced5 = digitalRead(buttonPin5);
@@ -286,11 +347,11 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia 1
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState1 != buttonStateSave1) {     // el estado de botón ha cambiado!
-      if (buttonState1 == LOW) {          // compruebe si el botón es presionado 
+  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState1 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState1 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  1 200ms
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.1       200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -298,19 +359,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (200 );
        DmxSimple.write(1, 0 );         
-       working = 0;
+       working = 0; // variable bandera de trabajo abajo
       }
     }
     buttonStateSave1 = buttonState1;               // guardar el nuevo estado en la variable
   }
+  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia2  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState2 != buttonStateSave2) {     // el estado de botón ha cambiado!
-      if (buttonState2 == LOW) {          // compruebe si el botón es presionado 
+  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState2 != buttonStateSave2) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState2 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  2 200ms
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.2       200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -318,19 +380,20 @@ void loop(){
        DmxSimple.write(2, 255 );
        delay (200 );
        DmxSimple.write(2, 0 );    
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave2 = buttonState2;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState3 != buttonStateSave3) {     // el estado de botón ha cambiado!
-      if (buttonState3 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState3 != buttonStateSave3) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  3 200ms
-     working = 1; 
+       working = 1; // variable bandera de trabajo arriba 
        lcd.setCursor(0, 0);
        lcd.print("SW.3       200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -338,19 +401,20 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (200 );
        DmxSimple.write(3, 0 );  
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave3 = buttonState3;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia4 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState4 != buttonStateSave4) {     // el estado de botón ha cambiado!
-      if (buttonState4 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState4 != buttonStateSave4) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState4 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  4 200ms
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.4       200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -358,19 +422,20 @@ void loop(){
        DmxSimple.write(4, 255 );
        delay (200 );
        DmxSimple.write(4, 0 );  
-       working = 0;    
+       working = 0; // variable bandera de trabajo abajo    
       }
     }
     buttonStateSave4 = buttonState4;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia5  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState5 != buttonStateSave5) {     // el estado de botón ha cambiado!
-      if (buttonState5 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState5 != buttonStateSave5) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState5 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  5 200ms
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.5       200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -378,19 +443,20 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );
        DmxSimple.write(5, 0 );  
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave5 = buttonState5;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia6 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState6 != buttonStateSave6) {     // el estado de botón ha cambiado!
-      if (buttonState6 == LOW) {          // compruebe si el botón es presionado    
+  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState6 != buttonStateSave6) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState6 == LOW) {          // comprueba si el boton esta pulsado   
        //secuencia  1 600ms
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.6       600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -398,19 +464,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (600 );
        DmxSimple.write(1, 0 );  
-       working = 0;          
+       working = 0; // variable bandera de trabajo abajo          
       }
     }
     buttonStateSave6 = buttonState6;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia7
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState7 != buttonStateSave7) {     // el estado de botón ha cambiado!
-      if (buttonState7 == LOW) {          // compruebe si el botón es presionado  
+  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState7 != buttonStateSave7) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState7 == LOW) {          // comprueba si el boton esta pulsado 
        //secuencia  2 600ms
-     working = 1;
+     working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.7       600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -418,19 +485,20 @@ void loop(){
        DmxSimple.write(2, 255 );
        delay (600 );
        DmxSimple.write(2, 0 );   
-       working = 0;   
+       working = 0; // variable bandera de trabajo abajo   
       }
     }
     buttonStateSave7 = buttonState7;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia8
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState8 != buttonStateSave8) {     // el estado de botón ha cambiado!
-      if (buttonState8 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState8 != buttonStateSave8) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState8 == LOW) {          // comprobamos si el boton esta presionado
         //secuencia  3 600ms
-       working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.8       600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -438,19 +506,20 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (600 );
        DmxSimple.write(3, 0 );  
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave8 = buttonState8;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia9  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState9 != buttonStateSave9) {     // el estado de botón ha cambiado!
-      if (buttonState9 == LOW) {          // compruebe si el botón es presionado   
+  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState9 != buttonStateSave9) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState9 == LOW) {          // comprueba si el boton esta pulsado  
        //secuencia  4 600ms
-     working = 1;
+     working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.9       600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -458,19 +527,20 @@ void loop(){
        DmxSimple.write(4, 255 );
        delay (600 );
        DmxSimple.write(4, 0 );   
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave9 = buttonState9;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia10  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState10 != buttonStateSave10) {     // el estado de botón ha cambiado!
-      if (buttonState10 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState10 != buttonStateSave10) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState10 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  5 600ms
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.10      600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -478,19 +548,20 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (600 );
        DmxSimple.write(5, 0 );  
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave10 = buttonState10;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia11  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState11 != buttonStateSave11) {     // el estado de botón ha cambiado!
-      if (buttonState11 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState11 != buttonStateSave11) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState11 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea  2,4  600ms
-     working = 1;
+     working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.11      600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -500,19 +571,20 @@ void loop(){
        delay (600 );  
        DmxSimple.write(2, 0 );   
        DmxSimple.write(4, 0 ); 
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave11 = buttonState11;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia12  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState12 != buttonStateSave12) {     // el estado de botón ha cambiado!
-      if (buttonState12 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState12 != buttonStateSave12) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState12 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea  1,3,5  600ms 
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.12      600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -524,19 +596,20 @@ void loop(){
        DmxSimple.write(1, 0 );   
        DmxSimple.write(3, 0 );
        DmxSimple.write(5, 0 );       
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave12 = buttonState12;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia13  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState13 != buttonStateSave13) {     // el estado de botón ha cambiado!
-      if (buttonState13 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState13 != buttonStateSave13) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState13 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea 1,2,3,4,5 600ms 
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.13      600ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -554,19 +627,20 @@ void loop(){
        DmxSimple.write(3, 0 );  
        DmxSimple.write(4, 0 );  
        DmxSimple.write(5, 0 );    
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave13 = buttonState13;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia14  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState14 != buttonStateSave14) {     // el estado de botón ha cambiado!
-      if (buttonState14 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState14 != buttonStateSave14) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState14 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 200ms 
-       working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.14      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -587,19 +661,20 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );    
        DmxSimple.write(5, 0 );       
-       working = 0;   
+       working = 0; // variable bandera de trabajo abajo   
       }
     }
     buttonStateSave14 = buttonState14;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia15  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState15 != buttonStateSave15) {     // el estado de botón ha cambiado!
-      if (buttonState15 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState15 != buttonStateSave15) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState15 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 200ms
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.15      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -620,19 +695,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (200 );    
        DmxSimple.write(1, 0 );         
-       working = 0;    
+       working = 0; // variable bandera de trabajo abajo    
       }
     }
     buttonStateSave15 = buttonState15;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia16  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState16 != buttonStateSave16) {     // el estado de botón ha cambiado!
-      if (buttonState3 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState16 != buttonStateSave16) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.16      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -665,21 +741,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (200 );    
        DmxSimple.write(1, 0 );       
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave16 = buttonState16;               // guardar el nuevo estado en la variable
   }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
- 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia17
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState17 != buttonStateSave1) {     // el estado de botón ha cambiado!
-      if (buttonState17 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState17 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState17 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.17      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -712,19 +787,20 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (200 );    
        DmxSimple.write(5, 0 );  
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave17 = buttonState17;               // guardar el nuevo estado en la variable
   }
+  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia18  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState18 != buttonStateSave18) {     // el estado de botón ha cambiado!
-      if (buttonState18 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState18 != buttonStateSave18) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState18 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
-     working = 1;   
+     working = 1; // variable bandera de trabajo arriba   
        lcd.setCursor(0, 0);
        lcd.print("SW.18      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -751,19 +827,20 @@ void loop(){
        DmxSimple.write(3, 255 );
        delay (200 );  
        DmxSimple.write(3, 0 );      
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave18 = buttonState18;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia19
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState19 != buttonStateSave19) {     // el estado de botón ha cambiado!
-      if (buttonState19 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState19 != buttonStateSave19) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState19 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
-     working = 1;
+     working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.19      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -792,19 +869,20 @@ void loop(){
        delay (200 ); 
        DmxSimple.write(1, 0 ); 
        DmxSimple.write(5, 0 );
-       working = 0;    
+       working = 0; // variable bandera de trabajo abajo    
       }
     }
     buttonStateSave19 = buttonState19;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia20
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState20 != buttonStateSave20) {     // el estado de botón ha cambiado!
-      if (buttonState20 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState20 != buttonStateSave20) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState20 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.20      200ms"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -833,19 +911,20 @@ void loop(){
        delay (100 ); 
        DmxSimple.write(1, 0 ); 
        DmxSimple.write(5, 0 );
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave20 = buttonState20;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia21
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState21 != buttonStateSave21) {     // el estado de botón ha cambiado!
-      if (buttonState21 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState21 != buttonStateSave21) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState21 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 100ms  x3
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.21   100ms x3"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -866,7 +945,7 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (100 );    
        DmxSimple.write(5, 0 );  
-     // abrir cerrar uno a uno 
+       // abrir cerrar uno a uno 
        DmxSimple.write(1, 255 );
        delay (100 ); 
        DmxSimple.write(1, 0 ); 
@@ -898,19 +977,20 @@ void loop(){
        DmxSimple.write(5, 255 );
        delay (100 );    
        DmxSimple.write(5, 0 );       
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave21 = buttonState21;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia22
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState22 != buttonStateSave22) {     // el estado de botón ha cambiado!
-      if (buttonState22 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState22 != buttonStateSave22) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState22 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 100ms x3
-     working = 1;   
+       working = 1; // variable bandera de trabajo arriba   
        lcd.setCursor(0, 0);
        lcd.print("SW.22   100ms x3"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -963,19 +1043,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (100 );    
        DmxSimple.write(1, 0 );       
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave22 = buttonState22;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia23
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState23 != buttonStateSave23) {     // el estado de botón ha cambiado!
-      if (buttonState23 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState23 != buttonStateSave23) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState23 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
-       working = 1;    
+       working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
        lcd.print("SW.23   100ms x3"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -1064,19 +1145,20 @@ void loop(){
        DmxSimple.write(1, 255 );
        delay (100 );    
        DmxSimple.write(1, 0 ); 
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave23 = buttonState23;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia24
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState24 != buttonStateSave24) {     // el estado de botón ha cambiado!
-      if (buttonState24 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState24 != buttonStateSave24) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState24 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia 24 battuka
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.24   batukada"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -1118,7 +1200,7 @@ void loop(){
        DmxSimple.write(1, 0 );
        DmxSimple.write(2, 0 );   
        delay (200 );     
-         //battuka de
+       //battuka de
        DmxSimple.write(4, 255 );
        DmxSimple.write(5, 255 );
        delay (400 );  
@@ -1154,89 +1236,94 @@ void loop(){
        delay (100 ); 
        DmxSimple.write(4, 0 );
        DmxSimple.write(5, 0 );  
-       working = 0;
+       working = 0; // variable bandera de trabajo abajo
       }
     }
     buttonStateSave24 = buttonState24;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia25 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState25 != buttonStateSave25) {     // el estado de botón ha cambiado!
-      if (buttonState25 == LOW) {          // compruebe si el botón es presionado      working = 1;
+  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState25 != buttonStateSave25) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState25 == LOW) {          // comprueba si el boton esta pulsado     working = 1; // variable bandera de trabajo arriba
        //secuencia 25 vacia 
-     working = 1;
-     lcd.setCursor(0, 0);
+       working = 1; // variable bandera de trabajo arriba
+       lcd.setCursor(0, 0);
        lcd.print("SW.25           "); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("                "); // Enviar el mensaje 
-       working = 0;          
+       working = 0; // variable bandera de trabajo abajo          
       }
     }
     buttonStateSave25 = buttonState25;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia26  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState26 != buttonStateSave26) {     // el estado de botón ha cambiado!
-      if (buttonState26 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState26 != buttonStateSave26) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState26 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia 26 vacia 
-       working = 1; 
+       working = 1; // variable bandera de trabajo arriba 
        lcd.setCursor(0, 0);
        lcd.print("SW.26           "); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("                "); // Enviar el mensaje  
-       working = 0;          
+       working = 0; // variable bandera de trabajo abajo          
       }
     }
     buttonStateSave26 = buttonState26;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia27
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState27 != buttonStateSave27) {     // el estado de botón ha cambiado!
-      if (buttonState27 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState27 != buttonStateSave27) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState27 == LOW) {          // comprobamos si el boton esta presionado
        // secuencia 27 abrir 3
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.27         ON"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("3               "); // Enviar el mensaje
        DmxSimple.write(3, 255 );  
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave27 = buttonState27;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia28
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState28 != buttonStateSave28) {     // el estado de botón ha cambiado!
-      if (buttonState28 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState28 != buttonStateSave28) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState28 == LOW) {          // comprobamos si el boton esta presionado
        // cerrar 3
-       working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.28        OFF"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("3               "); // Enviar el mensaje 
        DmxSimple.write(3, 0 );  
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave28 = buttonState28;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia29
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState29 != buttonStateSave29) {     // el estado de botón ha cambiado!
-      if (buttonState29 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState29 != buttonStateSave29) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState29 == LOW) {          // comprobamos si el boton esta presionado
        // abrir todos los inyectores
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.29         ON"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -1246,19 +1333,20 @@ void loop(){
        DmxSimple.write(3, 255 );  
        DmxSimple.write(4, 255 );  
        DmxSimple.write(5, 255 );  
-       working = 0;   
+       working = 0; // variable bandera de trabajo abajo   
       }
     }
     buttonStateSave29 = buttonState29;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia30 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState30 != buttonStateSave30) {     // el estado de botón ha cambiado!
-      if (buttonState30 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState30 != buttonStateSave30) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState30 == LOW) {          // comprobamos si el boton esta presionado
        // cerrar todos los inyectores
-       working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.30        OFF"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
@@ -1268,47 +1356,51 @@ void loop(){
        DmxSimple.write(3, 0 );  
        DmxSimple.write(4, 0 );  
        DmxSimple.write(5, 0 );    
-       working = 0;  
+       working = 0; // variable bandera de trabajo abajo  
       }
     }
     buttonStateSave30 = buttonState30;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia31
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState31 != buttonStateSave31) {     // el estado de botón ha cambiado!
-      if (buttonState31 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState31 != buttonStateSave31) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState31 == LOW) {          // comprobamos si el boton esta presionado
        // encender piloto
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.31         ON"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("PILOTOS         "); // Enviar el mensaje
        DmxSimple.write(6, 255 );  //canal 6 , valor entre 201-255  encender piloto
-       working = 0;           
+       working = 0; // variable bandera de trabajo abajo           
       }
     }
     buttonStateSave31 = buttonState31;               // guardar el nuevo estado en la variable
   }
+  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia32 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // asegúrar que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState32 != buttonStateSave32) {     // el estado de botón ha cambiado!
-      if (buttonState32 == LOW) {          // compruebe si el botón es presionado
+  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+    if (working == 0 && buttonState32 != buttonStateSave32) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+      if (buttonState32 == LOW) {          // comprobamos si el boton esta presionado
        // apagar piloto
-     working = 1;
+       working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
        lcd.print("SW.32        OFF"); // Enviar el mensaje 
        lcd.setCursor(0, 1);
        lcd.print("PILOTOS         "); // Enviar el mensaje 
        DmxSimple.write(6, 0 );  //canal 6 , valor entre 0<200  apagar piloto  
-       working = 0; 
+       working = 0; // variable bandera de trabajo abajo 
       }
     }
     buttonStateSave32 = buttonState32;               // guardar el nuevo estado en la variable
   }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+  
+/////////////////////////////////////////////////fin de las secuencias/////////////////////////////////////////////////////////////////  
 
-}
+}                ////////////////////////////////////////  fin loop ///////////////////////////////////////////////////
+                         /////////////////////////////////fin de programa ///////////////////////////////////
