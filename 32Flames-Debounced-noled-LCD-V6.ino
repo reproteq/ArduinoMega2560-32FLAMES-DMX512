@@ -347,7 +347,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia 1
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState1 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState1 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  1 200ms
@@ -368,7 +368,7 @@ void loop(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia2  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState2 != buttonStateSave2) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState2 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  2 200ms
@@ -389,7 +389,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState3 != buttonStateSave3) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  3 200ms
@@ -410,7 +410,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia4 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState4 != buttonStateSave4) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState4 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  4 200ms
@@ -431,7 +431,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia5  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState5 != buttonStateSave5) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState5 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  5 200ms
@@ -452,7 +452,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia6 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState6 != buttonStateSave6) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState6 == LOW) {          // comprueba si el boton esta pulsado   
        //secuencia  1 600ms
@@ -473,7 +473,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia7
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState7 != buttonStateSave7) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState7 == LOW) {          // comprueba si el boton esta pulsado 
        //secuencia  2 600ms
@@ -494,7 +494,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia8
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState8 != buttonStateSave8) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState8 == LOW) {          // comprobamos si el boton esta presionado
         //secuencia  3 600ms
@@ -515,7 +515,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia9  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState9 != buttonStateSave9) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState9 == LOW) {          // comprueba si el boton esta pulsado  
        //secuencia  4 600ms
@@ -536,7 +536,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia10  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState10 != buttonStateSave10) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState10 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia  5 600ms
@@ -557,7 +557,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia11  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState11 != buttonStateSave11) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState11 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea  2,4  600ms
@@ -580,7 +580,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia12  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState12 != buttonStateSave12) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState12 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea  1,3,5  600ms 
@@ -605,7 +605,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia13  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState13 != buttonStateSave13) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState13 == LOW) {          // comprobamos si el boton esta presionado
        // simultanea 1,2,3,4,5 600ms 
@@ -636,7 +636,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia14  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState14 != buttonStateSave14) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState14 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 200ms 
@@ -670,7 +670,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia15  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState15 != buttonStateSave15) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState15 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 200ms
@@ -704,7 +704,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia16  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState16 != buttonStateSave16) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
@@ -750,7 +750,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia17
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState17 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState17 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
@@ -796,7 +796,7 @@ void loop(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia18  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState18 != buttonStateSave18) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState18 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
@@ -836,7 +836,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia19
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState19 != buttonStateSave19) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState19 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
@@ -878,7 +878,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia20
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState20 != buttonStateSave20) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState20 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
@@ -920,7 +920,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia21
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState21 != buttonStateSave21) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState21 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 100ms  x3
@@ -986,7 +986,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia22
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState22 != buttonStateSave22) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState22 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 100ms x3
@@ -1052,7 +1052,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia23
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState23 != buttonStateSave23) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState23 == LOW) {          // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
@@ -1154,7 +1154,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia24
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState24 != buttonStateSave24) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState24 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia 24 battuka
@@ -1245,7 +1245,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia25 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState25 != buttonStateSave25) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState25 == LOW) {          // comprueba si el boton esta pulsado     working = 1; // variable bandera de trabajo arriba
        //secuencia 25 vacia 
@@ -1263,7 +1263,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia26  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState26 != buttonStateSave26) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState26 == LOW) {          // comprobamos si el boton esta presionado
        //secuencia 26 vacia 
@@ -1281,7 +1281,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia27
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState27 != buttonStateSave27) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState27 == LOW) {          // comprobamos si el boton esta presionado
        // secuencia 27 abrir 3
@@ -1300,7 +1300,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia28
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState28 != buttonStateSave28) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState28 == LOW) {          // comprobamos si el boton esta presionado
        // cerrar 3
@@ -1319,7 +1319,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia29
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState29 != buttonStateSave29) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState29 == LOW) {          // comprobamos si el boton esta presionado
        // abrir todos los inyectores
@@ -1342,7 +1342,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia30 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState30 != buttonStateSave30) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState30 == LOW) {          // comprobamos si el boton esta presionado
        // cerrar todos los inyectores
@@ -1365,7 +1365,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia31
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState31 != buttonStateSave31) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState31 == LOW) {          // comprobamos si el boton esta presionado
        // encender piloto
@@ -1384,7 +1384,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia32 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // comprobamos si esta trabajando dentro de alguna secuencia y aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState32 != buttonStateSave32) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState32 == LOW) {          // comprobamos si el boton esta presionado
        // apagar piloto
