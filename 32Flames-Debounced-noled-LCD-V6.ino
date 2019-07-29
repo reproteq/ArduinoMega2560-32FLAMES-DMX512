@@ -11,12 +11,11 @@ Flame machine DMX512 COMMANDS
 -------------------------------------------------------------
 DMX SHIELD CTC-DRA-10-R2  
 jumpers config:
-EN(run) <==  EN¯ (updt fw) ! Please For update firmware disconect battery 7-12v only usb 3.5v or arduino can dead !
+EN(run) <==  EN¯ (updt fw) ! Para actualizar el firmware de arduino desconectar la bateria tan solo conectar usb
 Slave   ==>  DE  (master)
 TX-io   <==  TX-uart
 RX-io   <==  RX-uart
-Pins 2,3,4 are used to transmit DMX signals
-xlr output to xlr input rgb
+Pins 2,3,4 pines usados para trasnmitir las señales DMX
 ------------------------------------------------------------
 libs
 //https://github.com/PaulStoffregen/DmxSimple
@@ -46,11 +45,14 @@ Display   :  Arduino
 ---------------------------------------------------------
 */
 
+// incluimos librerias dmx y lcd
 #include <DmxSimple.h> 
 #include <LiquidCrystal.h>
+
+// configuramos los pines que usara el LCD
 LiquidCrystal lcd(7, 8, 9, 10, 11, 12); //    ( RS, EN, d4, d5, d6, d7)
 
-// vars botones pins arduino
+// variables para la asignacion de pines de arduino a botones 
 const int buttonPin1 =  22;      
 const int buttonPin2 =  23;     
 const int buttonPin3 =  24;     
@@ -84,7 +86,7 @@ const int buttonPin30 = 51;
 const int buttonPin31 = 52; 
 const int buttonPin32 = 53;
 
-// vars para lectura del estado del pin 
+// variables para el estado de los botones
 int buttonState1;                        
 int buttonState2;                        
 int buttonState3;
@@ -118,7 +120,7 @@ int buttonState30;
 int buttonState31;
 int buttonState32;
 
-// vars para leer el estado delayed/debounced
+// variables para el estado del retraso del rebote del boton
 int buttonStateDebounced1;                       
 int buttonStateDebounced2;                      
 int buttonStateDebounced3; 
@@ -152,7 +154,7 @@ int buttonStateDebounced30;
 int buttonStateDebounced31; 
 int buttonStateDebounced32; 
 
-// vars para mantener el estado del botón 
+// variables para mantener el estado del boton
 int buttonStateSave1;               
 int buttonStateSave2;                 
 int buttonStateSave3; 
@@ -186,7 +188,7 @@ int buttonStateSave30;
 int buttonStateSave31; 
 int buttonStateSave32; 
 
-//var para comprobar el estado de la  bandera de trabajo 
+//variable para estado de la  bandera de trabajo 
 int working = 0; // inicializamos la variable bandera de trabajo abajo
   
 //setup
@@ -201,7 +203,7 @@ void setup() {
   DmxSimple.usePin(4); // // inicializamos el pin  para el shield dmx
   DmxSimple.maxChannel(6); //number of channels
   
-  // inicializamos los pins de los botones como entradas
+  // inicializamos los pins de arduino como botones de entradas
   pinMode(buttonPin1, INPUT);     
   pinMode(buttonPin2, INPUT);     
   pinMode(buttonPin3, INPUT);
@@ -235,7 +237,7 @@ void setup() {
   pinMode(buttonPin31, INPUT);
   pinMode(buttonPin32, INPUT);
   
-  // leemos el estado inicial de los pines
+  // leemos y almacenamos el estado inicial de los pins de los botones
   buttonStateSave1 = digitalRead(buttonPin1); 
   buttonStateSave2 = digitalRead(buttonPin2);  
   buttonStateSave3 = digitalRead(buttonPin2);
@@ -273,7 +275,7 @@ void setup() {
 //bucle
 void loop(){
 
-  // lee el buttonPin  de entrada y almacena su estado en  buttonState
+  // leemos los botones de entrada y almacenamos su estado
   buttonState1 = digitalRead(buttonPin1);  
   buttonState2 = digitalRead(buttonPin2);   
   buttonState3 = digitalRead(buttonPin3);
@@ -310,7 +312,7 @@ void loop(){
   //espera de ajuste
   delay(10); 
   
-  // lee el pin button de entrada otra vez para comprobar saltos y guarda en buttonStateDebounced
+  // leemos otra vez y almacenamos en otra variable distinta para luego comprobar posibles saltos
   buttonStateDebounced1 = digitalRead(buttonPin1); 
   buttonStateDebounced2 = digitalRead(buttonPin2);
   buttonStateDebounced3 = digitalRead(buttonPin3);
