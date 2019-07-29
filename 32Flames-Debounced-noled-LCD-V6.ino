@@ -347,7 +347,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia 1
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState1 == buttonStateDebounced1) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState1 == buttonStateDebounced1) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState1 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState1 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  1 200ms
@@ -362,13 +362,13 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo
       }
     }
-    buttonStateSave1 = buttonState1;               // guardar el nuevo estado en la variable
+    buttonStateSave1 = buttonState1;  // guardar el nuevo estado en la variable
   }
   
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia2  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState2 == buttonStateDebounced2) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState2 == buttonStateDebounced2) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState2 != buttonStateSave2) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState2 == LOW) {          // comprueba si el boton esta pulsado
        //secuencia  2 200ms
@@ -383,15 +383,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave2 = buttonState2;               // guardar el nuevo estado en la variable
+    buttonStateSave2 = buttonState2;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia3
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState3 == buttonStateDebounced3) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState3 == buttonStateDebounced3) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState3 != buttonStateSave3) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState3 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia  3 200ms
        working = 1; // variable bandera de trabajo arriba 
        lcd.setCursor(0, 0);
@@ -404,15 +404,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave3 = buttonState3;               // guardar el nuevo estado en la variable
+    buttonStateSave3 = buttonState3;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia4 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState4 == buttonStateDebounced4) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState4 == buttonStateDebounced4) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState4 != buttonStateSave4) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState4 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState4 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia  4 200ms
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -425,15 +425,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo    
       }
     }
-    buttonStateSave4 = buttonState4;               // guardar el nuevo estado en la variable
+    buttonStateSave4 = buttonState4;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia5  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState5 == buttonStateDebounced5) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState5 == buttonStateDebounced5) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState5 != buttonStateSave5) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState5 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState5 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia  5 200ms
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -446,13 +446,13 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave5 = buttonState5;               // guardar el nuevo estado en la variable
+    buttonStateSave5 = buttonState5;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia6 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState6 == buttonStateDebounced6) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState6 == buttonStateDebounced6) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState6 != buttonStateSave6) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState6 == LOW) {          // comprueba si el boton esta pulsado   
        //secuencia  1 600ms
@@ -467,13 +467,13 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo          
       }
     }
-    buttonStateSave6 = buttonState6;               // guardar el nuevo estado en la variable
+    buttonStateSave6 = buttonState6;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia7
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState7 == buttonStateDebounced7) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState7 == buttonStateDebounced7) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState7 != buttonStateSave7) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState7 == LOW) {          // comprueba si el boton esta pulsado 
        //secuencia  2 600ms
@@ -488,15 +488,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo   
       }
     }
-    buttonStateSave7 = buttonState7;               // guardar el nuevo estado en la variable
+    buttonStateSave7 = buttonState7;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia8
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState8 == buttonStateDebounced8) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState8 == buttonStateDebounced8) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState8 != buttonStateSave8) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState8 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState8 == LOW) {  // comprobamos si el boton esta presionado
         //secuencia  3 600ms
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -509,13 +509,13 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave8 = buttonState8;               // guardar el nuevo estado en la variable
+    buttonStateSave8 = buttonState8;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia9  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState9 == buttonStateDebounced9) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState9 == buttonStateDebounced9) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState9 != buttonStateSave9) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState9 == LOW) {          // comprueba si el boton esta pulsado  
        //secuencia  4 600ms
@@ -530,15 +530,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave9 = buttonState9;               // guardar el nuevo estado en la variable
+    buttonStateSave9 = buttonState9;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia10  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState10 == buttonStateDebounced10) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState10 == buttonStateDebounced10) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState10 != buttonStateSave10) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState10 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState10 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia  5 600ms
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -551,15 +551,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave10 = buttonState10;               // guardar el nuevo estado en la variable
+    buttonStateSave10 = buttonState10;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia11  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState11 == buttonStateDebounced11) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState11 == buttonStateDebounced11) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState11 != buttonStateSave11) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState11 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState11 == LOW) {  // comprobamos si el boton esta presionado
        // simultanea  2,4  600ms
      working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -574,15 +574,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave11 = buttonState11;               // guardar el nuevo estado en la variable
+    buttonStateSave11 = buttonState11;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia12  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState12 == buttonStateDebounced12) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState12 == buttonStateDebounced12) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState12 != buttonStateSave12) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState12 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState12 == LOW) {  // comprobamos si el boton esta presionado
        // simultanea  1,3,5  600ms 
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -599,15 +599,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave12 = buttonState12;               // guardar el nuevo estado en la variable
+    buttonStateSave12 = buttonState12;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia13  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState13 == buttonStateDebounced13) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState13 == buttonStateDebounced13) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState13 != buttonStateSave13) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState13 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState13 == LOW) {  // comprobamos si el boton esta presionado
        // simultanea 1,2,3,4,5 600ms 
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -630,15 +630,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave13 = buttonState13;               // guardar el nuevo estado en la variable
+    buttonStateSave13 = buttonState13;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia14  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState14 == buttonStateDebounced14) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState14 == buttonStateDebounced14) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState14 != buttonStateSave14) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState14 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState14 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 200ms 
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -664,15 +664,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo   
       }
     }
-    buttonStateSave14 = buttonState14;               // guardar el nuevo estado en la variable
+    buttonStateSave14 = buttonState14;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia15  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState15 == buttonStateDebounced15) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState15 == buttonStateDebounced15) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState15 != buttonStateSave15) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState15 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState15 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 200ms
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -698,15 +698,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo    
       }
     }
-    buttonStateSave15 = buttonState15;               // guardar el nuevo estado en la variable
+    buttonStateSave15 = buttonState15;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia16  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState16 == buttonStateDebounced16) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState16 == buttonStateDebounced16) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState16 != buttonStateSave16) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState3 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState3 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -744,15 +744,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave16 = buttonState16;               // guardar el nuevo estado en la variable
+    buttonStateSave16 = buttonState16;  // guardar el nuevo estado en la variable
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia17
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState17 == buttonStateDebounced17) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState17 == buttonStateDebounced17) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState17 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState17 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState17 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -790,15 +790,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave17 = buttonState17;               // guardar el nuevo estado en la variable
+    buttonStateSave17 = buttonState17;  // guardar el nuevo estado en la variable
   }
   
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 //secuencia18  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
-  if (working == 0 && buttonState18 == buttonStateDebounced18) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState18 == buttonStateDebounced18) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState18 != buttonStateSave18) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState18 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState18 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 3,2-4, 1-5, 2-4, 3  200ms
      working = 1; // variable bandera de trabajo arriba   
        lcd.setCursor(0, 0);
@@ -830,15 +830,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave18 = buttonState18;               // guardar el nuevo estado en la variable
+    buttonStateSave18 = buttonState18;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia19
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState19 == buttonStateDebounced19) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState19 == buttonStateDebounced19) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState19 != buttonStateSave19) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState19 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState19 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms
      working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -872,15 +872,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo    
       }
     }
-    buttonStateSave19 = buttonState19;               // guardar el nuevo estado en la variable
+    buttonStateSave19 = buttonState19;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia20
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState20 == buttonStateDebounced20) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState20 == buttonStateDebounced20) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState20 != buttonStateSave20) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState20 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState20 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1-5, 2-4, 3, 2-4, 1-5 200ms 
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -914,15 +914,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave20 = buttonState20;               // guardar el nuevo estado en la variable
+    buttonStateSave20 = buttonState20;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia21
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState21 == buttonStateDebounced21) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState21 == buttonStateDebounced21) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState21 != buttonStateSave21) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState21 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState21 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5 100ms  x3
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -980,15 +980,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave21 = buttonState21;               // guardar el nuevo estado en la variable
+    buttonStateSave21 = buttonState21;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia22
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState22 == buttonStateDebounced22) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState22 == buttonStateDebounced22) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState22 != buttonStateSave22) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState22 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState22 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1 100ms x3
        working = 1; // variable bandera de trabajo arriba   
        lcd.setCursor(0, 0);
@@ -1046,15 +1046,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave22 = buttonState22;               // guardar el nuevo estado en la variable
+    buttonStateSave22 = buttonState22;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia23
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState23 == buttonStateDebounced23) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState23 == buttonStateDebounced23) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState23 != buttonStateSave23) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState23 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState23 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 100ms x3
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -1148,15 +1148,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave23 = buttonState23;               // guardar el nuevo estado en la variable
+    buttonStateSave23 = buttonState23;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia24
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState24 == buttonStateDebounced24) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState24 == buttonStateDebounced24) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState24 != buttonStateSave24) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState24 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState24 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia 24 battuka
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1239,13 +1239,13 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo
       }
     }
-    buttonStateSave24 = buttonState24;               // guardar el nuevo estado en la variable
+    buttonStateSave24 = buttonState24;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia25 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState25 == buttonStateDebounced25) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState25 == buttonStateDebounced25) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState25 != buttonStateSave25) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState25 == LOW) {          // comprueba si el boton esta pulsado     working = 1; // variable bandera de trabajo arriba
        //secuencia 25 vacia 
@@ -1257,15 +1257,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo          
       }
     }
-    buttonStateSave25 = buttonState25;               // guardar el nuevo estado en la variable
+    buttonStateSave25 = buttonState25;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia26  
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState26 == buttonStateDebounced26) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState26 == buttonStateDebounced26) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState26 != buttonStateSave26) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState26 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState26 == LOW) {  // comprobamos si el boton esta presionado
        //secuencia 26 vacia 
        working = 1; // variable bandera de trabajo arriba 
        lcd.setCursor(0, 0);
@@ -1275,15 +1275,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo          
       }
     }
-    buttonStateSave26 = buttonState26;               // guardar el nuevo estado en la variable
+    buttonStateSave26 = buttonState26;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia27
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState27 == buttonStateDebounced27) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState27 == buttonStateDebounced27) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState27 != buttonStateSave27) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState27 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState27 == LOW) {  // comprobamos si el boton esta presionado
        // secuencia 27 abrir 3
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1294,15 +1294,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave27 = buttonState27;               // guardar el nuevo estado en la variable
+    buttonStateSave27 = buttonState27;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia28
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState28 == buttonStateDebounced28) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState28 == buttonStateDebounced28) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState28 != buttonStateSave28) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState28 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState28 == LOW) {  // comprobamos si el boton esta presionado
        // cerrar 3
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1313,15 +1313,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave28 = buttonState28;               // guardar el nuevo estado en la variable
+    buttonStateSave28 = buttonState28;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia29
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState29 == buttonStateDebounced29) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState29 == buttonStateDebounced29) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState29 != buttonStateSave29) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState29 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState29 == LOW) {  // comprobamos si el boton esta presionado
        // abrir todos los inyectores
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1336,15 +1336,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo   
       }
     }
-    buttonStateSave29 = buttonState29;               // guardar el nuevo estado en la variable
+    buttonStateSave29 = buttonState29;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia30 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState30 == buttonStateDebounced30) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState30 == buttonStateDebounced30) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState30 != buttonStateSave30) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState30 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState30 == LOW) {  // comprobamos si el boton esta presionado
        // cerrar todos los inyectores
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1359,15 +1359,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo  
       }
     }
-    buttonStateSave30 = buttonState30;               // guardar el nuevo estado en la variable
+    buttonStateSave30 = buttonState30;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia31
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState31 == buttonStateDebounced31) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState31 == buttonStateDebounced31) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState31 != buttonStateSave31) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState31 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState31 == LOW) {  // comprobamos si el boton esta presionado
        // encender piloto
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1378,15 +1378,15 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo           
       }
     }
-    buttonStateSave31 = buttonState31;               // guardar el nuevo estado en la variable
+    buttonStateSave31 = buttonState31;  // guardar el nuevo estado en la variable
   }
   
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 //secuencia32 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  if (working == 0 && buttonState32 == buttonStateDebounced32) {             // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
+  if (working == 0 && buttonState32 == buttonStateDebounced32) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState32 != buttonStateSave32) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState32 == LOW) {          // comprobamos si el boton esta presionado
+      if (buttonState32 == LOW) {  // comprobamos si el boton esta presionado
        // apagar piloto
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
@@ -1397,7 +1397,7 @@ void loop(){
        working = 0; // variable bandera de trabajo abajo 
       }
     }
-    buttonStateSave32 = buttonState32;               // guardar el nuevo estado en la variable
+    buttonStateSave32 = buttonState32;  // guardar el nuevo estado en la variable
   }
   
 /////////////////////////////////////////////////fin de las secuencias/////////////////////////////////////////////////////////////////  
