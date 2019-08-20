@@ -197,7 +197,7 @@ void setup() {
   lcd.setCursor(0, 0); //inicializamos la posicion del cursor lcd a la primera linea
   lcd.print("PIROTOMAS   2019"); // Enviar el mensaje     
   lcd.setCursor(0, 1); //inicializamos la posicion del cursor lcd a la segunda linea
-  lcd.print("FLAMEONE TT  FW.1"); // Enviar el mensaje 
+  lcd.print("FLAMEONE TT FW.1"); // Enviar el mensaje 
   pinMode(2, OUTPUT); // inicializamos el pin de salida para el shield dmx
   digitalWrite(2, HIGH); // inicializamos el pin de escritura para el shield dmx
   DmxSimple.usePin(4); // // inicializamos el pin  para el shield dmx
