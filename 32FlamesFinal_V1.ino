@@ -708,7 +708,7 @@ void loop(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   if (working == 0 && buttonState16 == buttonStateDebounced16) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState16 != buttonStateSave16) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
-      if (buttonState3 == LOW) {  // comprobamos si el boton esta presionado
+      if (buttonState16 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 1,2,3,4,5,4,3,2,1 200ms 
        working = 1; // variable bandera de trabajo arriba    
        lcd.setCursor(0, 0);
@@ -753,7 +753,7 @@ void loop(){
 //secuencia17
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
   if (working == 0 && buttonState17 == buttonStateDebounced17) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
-    if (working == 0 && buttonState17 != buttonStateSave1) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
+    if (working == 0 && buttonState17 != buttonStateSave17) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState17 == LOW) {  // comprobamos si el boton esta presionado
        //consecutivas 5,4,3,2,1,2,3,4,5  200ms  
        working = 1; // variable bandera de trabajo arriba    
