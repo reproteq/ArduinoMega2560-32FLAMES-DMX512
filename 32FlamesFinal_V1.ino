@@ -1159,85 +1159,12 @@ void loop(){
   if (working == 0 && buttonState24 == buttonStateDebounced24) { // comprobamos si esta trabajando dentro de alguna secuencia y nos aseguramos que conseguimos 2 lecturas constantes
     if (working == 0 && buttonState24 != buttonStateSave24) {     // comprobamos si esta trabajando dentro de alguna secuencia y si el estado de botón ha cambiado!
       if (buttonState24 == LOW) {  // comprobamos si el boton esta presionado
-       //secuencia 24 battuka
+       //secuencia 24  
        working = 1; // variable bandera de trabajo arriba
        lcd.setCursor(0, 0);
-       lcd.print("SW.24   batukada"); // Enviar el mensaje 
+       lcd.print("SW.24           "); // Enviar el mensaje 
        lcd.setCursor(0, 1);
-       lcd.print("12 -> 45        "); // Enviar el mensaje
-       //battuka iz
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );
-       delay (400 );  
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );
-       delay (200 );  
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );
-       delay (200 );  
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );  
-       delay (100 ); 
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );  
-       delay (100 ); 
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );
-       delay (100 ); 
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );
-       DmxSimple.write(1, 255 );
-       DmxSimple.write(2, 255 );
-       delay (100 ); 
-       DmxSimple.write(1, 0 );
-       DmxSimple.write(2, 0 );   
-       delay (200 );     
-       //battuka de
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );
-       delay (400 );  
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );
-       delay (200 );  
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );
-       delay (200 );  
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );  
-       delay (100 ); 
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );  
-       delay (100 ); 
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );
-       delay (100 ); 
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );
-       DmxSimple.write(4, 255 );
-       DmxSimple.write(5, 255 );
-       delay (100 ); 
-       DmxSimple.write(4, 0 );
-       DmxSimple.write(5, 0 );  
+       lcd.print("                "); // Enviar el mensaje      "); // Enviar el mensaje 
        working = 0; // variable bandera de trabajo abajo
       }
     }
